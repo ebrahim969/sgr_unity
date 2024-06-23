@@ -4,7 +4,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:path_provider/path_provider.dart';
 import 'package:sgr_unity/core/cache/cache_helper.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
-import 'package:sgr_unity/core/secrets/app_secrects.dart';
+import 'package:sgr_unity/core/secrets/app_secrets.dart';
 import 'package:sgr_unity/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:sgr_unity/features/auth/data/repository_impl/auth_repository_impl.dart';
 import 'package:sgr_unity/features/auth/domain/repository/auth_reopsitory.dart';
