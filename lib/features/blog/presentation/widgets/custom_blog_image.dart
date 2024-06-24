@@ -8,18 +8,20 @@ class CustomBlogImage extends StatelessWidget {
     this.height,
     this.width,
     this.index,
-    required this.image,
+    required this.image, this.isEdit = false, this.selectImage,
   });
-
+  final void Function()? selectImage;
   final int? index;
   final List<String> image;
   final double? height;
   final double? width;
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap:isEdit? 
+        selectImage :() {
         Navigator.push(
           context,
           MaterialPageRoute(

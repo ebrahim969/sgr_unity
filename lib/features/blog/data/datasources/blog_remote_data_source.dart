@@ -95,7 +95,7 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
     try {
       final blogs = await supabaseClient
           .from('blogs')
-          .select('*, profiles (name, profile_avatar)');
+          .select('*, profiles (name, profile_avatar)').order('updated_at');
       return blogs
           .map((blog) => BlogModel.fromJson(blog).copyWith(
               posterName: blog['profiles']['name'],
@@ -112,7 +112,7 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
       final blogs = await supabaseClient
           .from('blogs')
           .select('*, profiles (name, profile_avatar)')
-          .contains('topics', [topic]);
+          .contains('topics', [topic]).order('updated_at');
       return blogs
           .map((blog) => BlogModel.fromJson(blog).copyWith(
               posterName: blog['profiles']['name'],

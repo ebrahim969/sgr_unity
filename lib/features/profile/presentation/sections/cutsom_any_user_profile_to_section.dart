@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/utils/custom_loader.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_info/get_any_user_info_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/sections/custom_user_info_section.dart';
+import 'package:sgr_unity/features/profile/presentation/widgets/custom_user_information_loading.dart';
 
 class CustomAnyUserProfileTopSection extends StatefulWidget {
   const CustomAnyUserProfileTopSection({super.key, required this.userId});
@@ -30,7 +31,7 @@ class _CustomAnyUserProfileTopSectionState
             user: state.user,
           );
         } else if (state is GetAnyUserInfoLoading) {
-          return const Center(child: CustomLoader());
+          return const CustomUserInformationLoading();
         } else {
           return const Center(child: CustomLoader());
         }

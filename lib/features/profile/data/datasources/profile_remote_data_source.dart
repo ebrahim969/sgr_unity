@@ -27,7 +27,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       final response = await supabaseClient
           .from('blogs')
           .select('*, profiles (name, profile_avatar)')
-          .eq('poster_id', currentUserSession!.user.id);
+          .eq('poster_id', currentUserSession!.user.id).order('updated_at');
       final blogs = response
           .map((blog) => BlogModel.fromJson(blog).copyWith(
               posterName: blog['profiles']['name'],
@@ -80,7 +80,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       final userBlogs = await supabaseClient
           .from('blogs')
           .select('*, profiles (name, profile_avatar)')
-          .eq('poster_id', userId);
+          .eq('poster_id', userId).order('updated_at');
       return userBlogs
           .map((userBlog) => BlogModel.fromJson(userBlog).copyWith(
                 posterAvatar: userBlog['profiles']['profile_avatar'],

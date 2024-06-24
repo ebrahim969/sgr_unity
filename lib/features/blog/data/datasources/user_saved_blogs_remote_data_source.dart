@@ -76,7 +76,7 @@ class UserSavedBlogsRemoteDataSourceImpl
       final getSavedBlogs = await supabaseClient
           .from('blogs')
           .select('*, profiles (name, profile_avatar)')
-          .inFilter('id', blogsId);
+          .inFilter('id', blogsId).order('updated_at');
       return getSavedBlogs
           .map((savedBlog) => BlogModel.fromJson(savedBlog).copyWith(
               posterAvatar: savedBlog['profiles']['profile_avatar'],

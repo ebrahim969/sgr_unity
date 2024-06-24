@@ -11,13 +11,14 @@ class CustomBlogImagesSlider extends StatefulWidget {
     this.isFile = false,
     this.imageUrl,
     this.image,
-    this.selectImage,
+    this.selectImage, this.isEdit,
   });
 
   final List<File>? image;
   final List<String>? imageUrl;
   final bool isFile;
   final void Function()? selectImage;
+  final bool? isEdit;
   @override
   State<CustomBlogImagesSlider> createState() => _CustomBlogImagesSliderState();
 }
@@ -42,6 +43,8 @@ class _CustomBlogImagesSliderState extends State<CustomBlogImagesSlider> {
                     isFile: true,
                   )
                 : CustomBlogImage(
+                  isEdit: widget.isEdit?? false,
+                    selectImage: widget.selectImage,
                     image: widget.imageUrl ?? [],
                     index: index,
                   );

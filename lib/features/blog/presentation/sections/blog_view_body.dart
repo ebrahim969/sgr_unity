@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/utils/assets/assets.dart';
 import 'package:sgr_unity/core/utils/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
@@ -46,14 +47,14 @@ class _BlogViewBodyState extends State<BlogViewBody> {
             return Center(child: SvgPicture.asset(Assets.imagesEmptyListImage));
           } else {
             return RefreshIndicator(
+              color: AppPallete.gradient1,
               onRefresh: () async {
                 context.read<BlogBloc>().add(widget.blogEvent);
               },
               child: ListView.builder(
                 itemCount: state.blogs.length,
                 itemBuilder: (context, index) {
-                  final blogReversed = state.blogs.reversed.toList();
-                  final blog = blogReversed[index];
+                  final blog = state.blogs[index];
                   return CustomBlogCard(
                     blog: blog,
                   );

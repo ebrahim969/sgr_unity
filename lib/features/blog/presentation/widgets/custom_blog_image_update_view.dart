@@ -29,6 +29,7 @@ Widget blogImagesUpdateView(
                   imageUrl: blog.imageUrl,
                 )
               : CustomBlogImagesSlider(
+                isEdit: true,
                   selectImage: selectImage,
                   imageUrl: blog.imageUrl,
                 );

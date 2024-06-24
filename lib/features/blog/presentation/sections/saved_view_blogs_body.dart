@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/utils/assets/assets.dart';
 import 'package:sgr_unity/core/utils/custom_loader.dart';
 import 'package:sgr_unity/core/utils/custom_toast.dart';
@@ -34,6 +35,7 @@ class SavedViewBlogsBody extends StatelessWidget {
                   child: SvgPicture.asset(Assets.imagesEmptyListImage2));
             }
             return RefreshIndicator(
+              color: AppPallete.gradient1,
               onRefresh: () async {
                 final userId =
                     (context.read<GetCurrentUserBloc>().state as GetUserSuccess)
