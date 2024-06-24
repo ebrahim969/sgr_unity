@@ -8,7 +8,9 @@ class CustomBlogImage extends StatelessWidget {
     this.height,
     this.width,
     this.index,
-    required this.image, this.isEdit = false, this.selectImage,
+    required this.image,
+    this.isEdit = false,
+    this.selectImage,
   });
   final void Function()? selectImage;
   final int? index;
@@ -20,23 +22,18 @@ class CustomBlogImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:isEdit? 
-        selectImage :() {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => FullScreenBlogImageView(image: image),
-          ),
-        );
-      },
-      child: SizedBox(
-        height: height,
-        width: width,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: CustomFancyShimmerImage(images: image, index: index),
-        ),
-      ),
+      onTap: isEdit
+          ? selectImage
+          : () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      FullScreenBlogImageView(image: image),
+                ),
+              );
+            },
+      child: CustomFancyShimmerImage(images: image, index: index, height: height,width: width,),
     );
   }
 }

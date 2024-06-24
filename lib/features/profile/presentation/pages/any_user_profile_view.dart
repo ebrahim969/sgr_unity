@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/services/service_locator.dart';
-import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_blogs/get_any_user_blogs_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_info/get_any_user_info_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/sections/cutsom_any_user_profile_to_section.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_any_user_profile_blogs.dart';
@@ -32,11 +31,8 @@ class AnyUserProfileView extends StatelessWidget {
                       userId: blog.posterId,
                     ),
                   ),
-                  BlocProvider.value(
-                    value: sl<GetAnyUserBlogsBloc>(),
-                    child: CustomAnyUserProfileBlogs(
-                      userId: blog.posterId,
-                    ),
+                  CustomAnyUserProfileBlogs(
+                    userId: blog.posterId,
                   )
                 ],
               ),

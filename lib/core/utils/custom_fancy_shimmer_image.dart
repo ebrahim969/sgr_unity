@@ -17,17 +17,20 @@ class CustomFancyShimmerImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FancyShimmerImage(
-      height: height?? 300.h,
-      width: width?? 300.h,
-      imageUrl: image ?? images![index??0],
-      shimmerBaseColor: Colors.grey.shade300,
-      shimmerHighlightColor: Colors.grey.shade100,
-      boxFit: BoxFit.cover,
-      boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
-      errorWidget: const Icon(
-        Icons.close,
-        color: Colors.red,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: FancyShimmerImage(
+        height: height?? 300.h,
+        width: width?? 300.h,
+        imageUrl: image ?? images![index??0],
+        shimmerBaseColor: Colors.grey.shade300,
+        shimmerHighlightColor: Colors.grey.shade100,
+        boxFit: BoxFit.cover,
+        boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+        errorWidget: const Icon(
+          Icons.close,
+          color: Colors.red,
+        ),
       ),
     );
   }

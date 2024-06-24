@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgr_unity/core/functions/calculate_reading_time.dart';
-import 'package:sgr_unity/core/functions/format_date_time.dart';
-import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
-import 'package:sgr_unity/features/blog/presentation/sections/custom_blog_images_slider.dart';
-import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_image.dart';
-import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_user_info.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/features/blog/presentation/sections/blogs_from_same_auther.dart';
+import 'package:sgr_unity/features/blog/presentation/widgets/blog_details_widget.dart';
 
 class BlogDetailsView extends StatelessWidget {
   const BlogDetailsView({super.key, required this.blog});
@@ -17,50 +14,50 @@ class BlogDetailsView extends StatelessWidget {
         child: Scaffold(
       appBar: AppBar(),
       body: Scrollbar(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0).copyWith(bottom: null),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  blog.title,
-                  style:
-                      TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+        child: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BlogDetailsWidget(
+                        blog: blog,
+                      ),
+                      SizedBox(
+                        height: 24.h,
+                      ),
+                      Text.rich(
+                        TextSpan(children: [
+                          TextSpan(
+                              text: 'Other Blogs From ',
+                              style: TextStyle(fontSize: 20.sp)),
+                          TextSpan(
+                              text: blog.posterName,
+                              style: TextStyle(
+                                  fontSize: 20.sp, color: AppPallete.gradient1))
+                        ]),
+                      ),
+                      SizedBox(
+                          width: 70.w,
+                          child: const Divider(
+                            thickness: 3,
+                            color: AppPallete.gradient3,
+                          )),
+                      SizedBox(
+                        height: 16.h,
+                      ),
+                      BlogsFromSameAuther(
+                        blog: blog,
+                      )
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                CustomBlogUserInfo(blog: blog),
-                SizedBox(
-                  height: 8.h,
-                ),
-                Text(
-                  '${formatDateTime(blog.updatedAt)} . ${calculateReadingTime(blog.content)} min read',
-                  style:
-                      TextStyle(fontSize: 14.sp, color: AppPallete.greyColor),
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                blog.imageUrl!.isNotEmpty
-                    ? Center(
-                        child: blog.imageUrl!.length == 1
-                            ? CustomBlogImage(image: blog.imageUrl!)
-                            : CustomBlogImagesSlider(
-                                imageUrl: blog.imageUrl,
-                              ))
-                    : const SizedBox(),
-                SizedBox(
-                  height: 16.h,
-                ),
-                Text(
-                  blog.content,
-                  style: const TextStyle(height: 2),
-                )
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     ));

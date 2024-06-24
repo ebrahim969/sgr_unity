@@ -9,8 +9,10 @@ class AppTheme {
         ),
         borderRadius: BorderRadius.circular(10),
       );
-  static final darkThemeMode = ThemeData.dark().copyWith(
+  static final darkThemeMode = ThemeData(
+    fontFamily: 'Oswald',
     scaffoldBackgroundColor: AppPallete.backgroundColor,
+    brightness: Brightness.dark,
     appBarTheme: const AppBarTheme(
         backgroundColor: AppPallete.backgroundColor, elevation: 0),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
