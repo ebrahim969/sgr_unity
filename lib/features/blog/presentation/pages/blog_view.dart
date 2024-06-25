@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/home_view_body.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_tab_bar.dart';
@@ -40,7 +41,10 @@ class _BlogsViewState extends State<BlogsView>
         onPressed: () {
           customNavigate(context, '/AddNewBlogView');
         },
-        child: const Icon(Icons.post_add),
+        child: const Icon(
+          Icons.post_add,
+          color: AppPallete.whiteColor,
+        ),
       ),
       appBar: AppBar(
         toolbarHeight: 80.h,

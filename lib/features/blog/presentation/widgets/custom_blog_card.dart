@@ -78,9 +78,17 @@ class CustomBlogCard extends StatelessWidget {
                   style:
                       TextStyle(fontSize: 14.sp, color: AppPallete.greyColor),
                 ),
-                CustomSavedBlogWidget(
-                  blog: blog,
-                ),
+                Row(
+                  children: [
+                    const Icon(Icons.share_sharp),
+                    SizedBox(
+                      width: 16.w,
+                    ),
+                    CustomSavedBlogWidget(
+                      blog: blog,
+                    ),
+                  ],
+                )
               ],
             )
           ],
