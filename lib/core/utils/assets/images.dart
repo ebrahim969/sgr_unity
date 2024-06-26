@@ -23,6 +23,6 @@ class Assets {
 
   /// Assets for imagesSGRUnityIcon
   /// assets/images/SGR_Unity_icon.png
-  static const String imagesSGRUnityIcon = "assets/images/SGR_Unity_icon.png";
+  static const String imagesSGRUnityIcon = "assets/images/app_icon.png";
 }
 

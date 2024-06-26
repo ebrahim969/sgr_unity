@@ -11,7 +11,8 @@ abstract interface class BlogRemoteDataSource {
   Future<List<BlogModel>> getAllBlogs();
   Future<List<BlogModel>> getTopicBlogs({required String topic});
   Future<BlogModel> updateBlog({required BlogModel blogModel});
-  Future<void> deleteBlog({required String id});
+  Future<void> deleteBlog(
+      {required String id, required List<String> imageUrls});
 }
 
 class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
@@ -95,7 +96,8 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
     try {
       final blogs = await supabaseClient
           .from('blogs')
-          .select('*, profiles (name, profile_avatar)').order('updated_at');
+          .select('*, profiles (name, profile_avatar)')
+          .order('updated_at');
       return blogs
           .map((blog) => BlogModel.fromJson(blog).copyWith(
               posterName: blog['profiles']['name'],
@@ -124,13 +126,37 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
   }
 
   @override
-  Future<void> deleteBlog({required String id}) async {
+  Future<void> deleteBlog(
+      {required String id, required List<String> imageUrls}) async {
     try {
+      if (imageUrls.isNotEmpty) {
+        for (var imageUrl in imageUrls) {
+          await deleteImageFromStorage(imageUrl);
+        }
+      }
       await supabaseClient.from('blogs').delete().eq('id', id);
     } on PostgrestException catch (e) {
       throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }
+  }
+
+  Future<void> deleteImageFromStorage(String imageUrl) async {
+    try {
+      final path = extractPathFromUrl(imageUrl);
+      await supabaseClient.storage.from('blog_images').remove([path]);
+    } on StorageException catch (e) {
+      throw ServerException(e.message);
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
+  }
+
+  String extractPathFromUrl(String url) {
+    final uri = Uri.parse(url);
+    final imageurl = uri.pathSegments.last;
+    log(imageurl);
+    return imageurl;
   }
 }

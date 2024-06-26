@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
 
 class BlogEditor extends StatelessWidget {
   final TextEditingController controller;
@@ -13,6 +14,7 @@ class BlogEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppPallete.gradient2,
       onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(

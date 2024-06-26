@@ -56,6 +56,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
     ));
 
     res.fold((failure) {
+      add(GetAllBlogsEvent());
       emit(BlogFailure(failure.message));
     }, (blog) {
       emit(UnitBlogSuccess());
@@ -84,7 +85,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   FutureOr<void> _onDeleteBlogEvent(
       DeleteBlogEvent event, Emitter<BlogState> emit) async {
-    final res = await _deleteBlog(DeleteBlogParams(id: event.id));
+    final res = await _deleteBlog(
+        DeleteBlogParams(id: event.id, imageUrls: event.imageUrls));
 
     res.fold((failure) {
       emit(BlogFailure(failure.message));

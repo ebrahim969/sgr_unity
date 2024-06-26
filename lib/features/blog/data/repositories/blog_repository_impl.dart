@@ -78,9 +78,9 @@ class BlogRepositoryImpl implements BlogRepository {
   }
 
   @override
-  Future<Either<Failures, Unit>> deleteBlog({required String id}) async {
+  Future<Either<Failures, Unit>> deleteBlog({required String id, required List<String> imageUrls}) async {
     try {
-      await blogRemoteDataSource.deleteBlog(id: id);
+      await blogRemoteDataSource.deleteBlog(id: id, imageUrls: imageUrls);
       return right(unit);
     } on ServerException catch (e) {
       return left(Failures(e.message));

@@ -52,9 +52,7 @@ class _SplashViewState extends State<SplashView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(16)),
-                  child: Image.asset(Assets.imagesSGRUnityIcon, height: 100,)),
+                Image.asset(Assets.imagesSGRUnityIcon, height: 200.h,),
                 SizedBox(
                   height: 48.h,
                 ),

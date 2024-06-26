@@ -9,12 +9,13 @@ class DeleteBlog implements UseCase<Unit, DeleteBlogParams> {
   DeleteBlog(this.blogRepository);
   @override
   Future<Either<Failures, Unit>> call(DeleteBlogParams params) async {
-    return blogRepository.deleteBlog(id: params.id);
+    return blogRepository.deleteBlog(id: params.id, imageUrls: params.imageUrls);
   }
 }
 
 class DeleteBlogParams {
   final String id;
+  final List<String> imageUrls;
 
-  DeleteBlogParams({required this.id});
+  DeleteBlogParams({required this.id, required this.imageUrls});
 }

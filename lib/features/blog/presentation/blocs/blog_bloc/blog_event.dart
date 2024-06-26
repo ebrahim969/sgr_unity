@@ -29,8 +29,8 @@ final class GetTopicBlogsEvent extends BlogEvent {
 
 final class DeleteBlogEvent extends BlogEvent {
   final String id;
-
-  DeleteBlogEvent(this.id);
+  final List<String> imageUrls;
+  DeleteBlogEvent(this.id, this.imageUrls);
 }
 
 final class UpdateBlogEvent extends BlogEvent {

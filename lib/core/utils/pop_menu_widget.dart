@@ -57,7 +57,7 @@ class PopUpMenueWidget extends StatelessWidget {
               context: context,
               desc: "You want to delete this blog?",
               ok: () {
-                context.read<BlogBloc>().add(DeleteBlogEvent(blog.id));
+                context.read<BlogBloc>().add(DeleteBlogEvent(blog.id, blog.imageUrl!));
                 custompopNavigate(context);
               });
         }

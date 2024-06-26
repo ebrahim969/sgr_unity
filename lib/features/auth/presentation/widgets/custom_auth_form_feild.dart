@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sgr_unity/core/theme/app_pallete.dart';
 
 class CustomAuthTextFormFeild extends StatelessWidget {
   final String hintText;
@@ -24,6 +25,7 @@ class CustomAuthTextFormFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppPallete.gradient3,
       onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(hintText: hintText, helperText: helperText),
