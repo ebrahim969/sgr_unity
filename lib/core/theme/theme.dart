@@ -9,17 +9,44 @@ class AppTheme {
         ),
         borderRadius: BorderRadius.circular(10),
       );
+
+      // Dark theme
   static final darkThemeMode = ThemeData(
     fontFamily: 'Oswald',
-    scaffoldBackgroundColor: AppPallete.backgroundColor,
+    scaffoldBackgroundColor: AppPallete.darkBackgroundColor,
     brightness: Brightness.dark,
     appBarTheme: const AppBarTheme(
-        backgroundColor: AppPallete.backgroundColor, elevation: 0),
+        backgroundColor: AppPallete.darkBackgroundColor, elevation: 0),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppPallete.gradient1),
     chipTheme: const ChipThemeData(
       color: WidgetStatePropertyAll(
-        AppPallete.backgroundColor,
+        AppPallete.darkBackgroundColor,
+      ),
+      side: BorderSide.none,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(27),
+      border: _border(),
+      enabledBorder: _border(),
+      focusedBorder: _border(AppPallete.gradient2),
+      errorBorder: _border(AppPallete.errorColor),
+    ),
+  ); 
+
+  //Light theme
+
+  static final lightThemeMode = ThemeData(
+    fontFamily: 'Oswald',
+    scaffoldBackgroundColor: AppPallete.lightBackgroundColor,
+    brightness: Brightness.light,
+    appBarTheme: const AppBarTheme(
+        backgroundColor: AppPallete.lightBackgroundColor, elevation: 0),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: AppPallete.gradient3),
+    chipTheme: const ChipThemeData(
+      color: WidgetStatePropertyAll(
+        AppPallete.lightBackgroundColor,
       ),
       side: BorderSide.none,
     ),

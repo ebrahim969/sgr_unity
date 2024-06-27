@@ -9,6 +9,7 @@ import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_card_to
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_image.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_user_info.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_saved_blogs_widget.dart';
+import 'package:sgr_unity/features/blog/presentation/widgets/custom_share_blog_widget.dart';
 
 class CustomBlogCard extends StatelessWidget {
   const CustomBlogCard({super.key, required this.blog});
@@ -80,7 +81,7 @@ class CustomBlogCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.share_sharp),
+                    CustomShareBlogWidget(blog: blog),
                     SizedBox(
                       width: 16.w,
                     ),
@@ -97,3 +98,4 @@ class CustomBlogCard extends StatelessWidget {
     );
   }
 }
+

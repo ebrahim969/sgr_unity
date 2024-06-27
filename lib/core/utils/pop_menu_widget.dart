@@ -20,7 +20,7 @@ class PopUpMenueWidget extends StatelessWidget {
       icon: const Icon(
         Icons.more_horiz_outlined,
       ),
-      color: AppPallete.backgroundColor,
+      color: AppPallete.darkBackgroundColor,
       itemBuilder: (context) => [
         const PopupMenuItem(
             value: 'Edit',
@@ -57,7 +57,9 @@ class PopUpMenueWidget extends StatelessWidget {
               context: context,
               desc: "You want to delete this blog?",
               ok: () {
-                context.read<BlogBloc>().add(DeleteBlogEvent(blog.id, blog.imageUrl!));
+                context
+                    .read<BlogBloc>()
+                    .add(DeleteBlogEvent(blog.id, blog.imageUrl!));
                 custompopNavigate(context);
               });
         }

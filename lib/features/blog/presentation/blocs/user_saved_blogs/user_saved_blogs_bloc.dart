@@ -12,18 +12,15 @@ part 'user_saved_blogs_state.dart';
 class UserSavedBlogsBloc
     extends Bloc<UserSavedBlogsEvent, UserSavedBlogsState> {
   final ToggleSavedUserBlog _toggleSavedUserBlog;
-  // final FetchSavedUserBlogsId _fetchSavedUserBlogs;
   final GetUserSavedBlogs _getUserSavedBlogs;
   UserSavedBlogsBloc({
     required ToggleSavedUserBlog toggleSavedUserBlog,
     required FetchSavedUserBlogsId fetchSavedUserBlogs,
     required GetUserSavedBlogs getUserSavedBlogs,
   })  : _toggleSavedUserBlog = toggleSavedUserBlog,
-        // _fetchSavedUserBlogs = fetchSavedUserBlogs,
         _getUserSavedBlogs = getUserSavedBlogs,
         super(UserSavedBlogsInitial()) {
     on<ToggleSavedBlogEvent>(_onToggleSavedBlogEvent);
-    // on<FetchUserSavedBlogsIdEvent>(_onFetchUserSavedBlogsIdEvent);
     on<GetUserSavedBlogsEvent>(_onGetUserSavedBlogs);
   }
 
@@ -36,16 +33,6 @@ class UserSavedBlogsBloc
       add(GetUserSavedBlogsEvent(savedBlog.userId));
     });
   }
-
-  // void _onFetchUserSavedBlogsIdEvent(FetchUserSavedBlogsIdEvent event,
-  //     Emitter<UserSavedBlogsState> emit) async {
-  //   emit(UserSavedBlogsLoading());
-  //   final res = await _fetchSavedUserBlogs(
-  //       FetchSavedUserBlogsParams(userId: event.userId));
-
-  //   res.fold((failure) => emit(UserSavedBlogsFailure(failure.message)),
-  //       (savedUserBlogs) => emit(FetchUserSavedBlogsIdSuccess(savedUserBlogs)));
-  // }
 
   void _onGetUserSavedBlogs(
       GetUserSavedBlogsEvent event, Emitter<UserSavedBlogsState> emit) async {

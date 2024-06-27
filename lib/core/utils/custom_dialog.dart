@@ -9,7 +9,7 @@ void customDialog(
     required String desc,
     required Function()? ok}) {
   QuickAlert.show(
-    backgroundColor: AppPallete.backgroundColor,
+    backgroundColor: AppPallete.darkBackgroundColor,
     confirmBtnColor: AppPallete.errorColor,
     showCancelBtn: true,
     context: context,

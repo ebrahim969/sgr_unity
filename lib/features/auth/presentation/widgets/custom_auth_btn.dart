@@ -37,7 +37,7 @@ class CustomAuthBtn extends StatelessWidget {
         child: isLoading
             ? const Center(
                 child: CircularProgressIndicator(
-                  color: AppPallete.backgroundColor,
+                  color: AppPallete.darkBackgroundColor,
                 ),
               )
             : Text(

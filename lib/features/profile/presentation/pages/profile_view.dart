@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/features/blog/presentation/widgets/custom_signout.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_profile_blogs.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_profile_info_widget.dart';
@@ -17,7 +17,11 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            customSignOut(),
+            IconButton(
+                onPressed: () {
+                  customNavigate(context, '/SettingsView');
+                },
+                icon: const Icon(Icons.menu))
           ],
         ),
         body: Column(
@@ -28,7 +32,7 @@ class ProfileView extends StatelessWidget {
                 onRefresh: () async {
                   context
                       .read<GetCurrentUserBloc>()
-                      .add(GetCurrentUserDataEvent());    
+                      .add(GetCurrentUserDataEvent());
                 },
                 child: SingleChildScrollView(
                   child: Column(

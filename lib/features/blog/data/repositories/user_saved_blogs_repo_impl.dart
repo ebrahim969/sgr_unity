@@ -17,6 +17,9 @@ class UserSavedBlogsRepositoryImpl implements UserSavedBlogsRepository {
   Future<Either<Failures, List<String>>> fetchUserSavedBlogsId(
       {required String userId}) async {
     try {
+      if (!await (connectionChecker.isConnected)) {
+        return left(Failures('Check your internet connection...'));
+      }
       List<String> fetchUserSavedBlogs = await fetchUserBlogsIdMethod(userId);
       return right(fetchUserSavedBlogs);
     } on ServerException catch (e) {
@@ -34,6 +37,9 @@ class UserSavedBlogsRepositoryImpl implements UserSavedBlogsRepository {
   Future<Either<Failures, SavedBlog>> toggleSavedUserBlogs(
       {required String userId, required String blogId}) async {
     try {
+      if (!await (connectionChecker.isConnected)) {
+        return left(Failures('Check your internet connection...'));
+      }
       SavedBlogsModel savedBlogsModel =
           SavedBlogsModel(userId: userId, blogId: blogId);
       List<String> fetchUserSavedBlogs = await fetchUserBlogsIdMethod(userId);
@@ -56,6 +62,9 @@ class UserSavedBlogsRepositoryImpl implements UserSavedBlogsRepository {
   Future<Either<Failures, List<Blog>>> getSavedBlogs(
       {required String userId}) async {
     try {
+      if (!await (connectionChecker.isConnected)) {
+        return left(Failures('Check your internet connection...'));
+      }
       List<String> blogsId = await fetchUserBlogsIdMethod(userId);
       final getSavedBlogs =
           await userSavedBlogsRemoteDataSource.getSavedBlogs(blogsId: blogsId);

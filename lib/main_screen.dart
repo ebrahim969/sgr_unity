@@ -22,7 +22,7 @@ class MainScreenView extends StatelessWidget {
       screens: _buildScreens(),
       items: _navBarsItems(),
       controller: _controller,
-      backgroundColor: AppPallete.backgroundColor,
+      backgroundColor: AppPallete.darkBackgroundColor,
       navBarStyle: NavBarStyle.style9,
     );
   }

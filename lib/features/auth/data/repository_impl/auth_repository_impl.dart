@@ -72,6 +72,9 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Either<Failures, Unit>> signOut() async {
     try {
+      if (!await (connectionChecker.isConnected)) {
+          return left(Failures('Check yur internet connection...'));
+      }
       await authRemoteDataSource.signOutUser();
       return right(unit);
     } on ServerException catch (e) {
