@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/background_circles_widget.dart';
+import 'package:sgr_unity/core/utils/widgets/background_circles_widget.dart';
 import 'package:sgr_unity/features/auth/presentation/sections/custom_sign_up_form.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/join_to_unity_widget.dart';
 

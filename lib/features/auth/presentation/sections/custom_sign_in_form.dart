@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_btn.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_form_feild.dart';

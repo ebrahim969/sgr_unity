@@ -1,5 +1,6 @@
 import 'package:sgr_unity/core/common/models/blog_model.dart';
 import 'package:sgr_unity/core/error/failures.dart';
+import 'package:sgr_unity/core/utils/strings.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class SearchRemoteDataSource {
@@ -14,7 +15,7 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   Future<List<BlogModel>> searchAboutBlogs({required String query}) async {
     try {
       final response = await supabaseClient
-          .from('blogs')
+          .from(DbStrings.blogsTable)
           .select('*, profiles(name, profile_avatar)')
           .or('content.ilike.%$query%,title.ilike.%$query%');
       return response
@@ -22,6 +23,8 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
               posterName: blog['profiles']['name'],
               posterAvatar: blog['profiles']['profile_avatar']))
           .toList();
+    } on PostgrestException catch (e) {
+      throw ServerException(e.message);
     } catch (e) {
       throw ServerException(e.toString());
     }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
 

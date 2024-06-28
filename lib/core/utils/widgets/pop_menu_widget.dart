@@ -4,7 +4,7 @@ import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
-import 'package:sgr_unity/core/utils/custom_dialog.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_dialog.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
 
 class PopUpMenueWidget extends StatelessWidget {

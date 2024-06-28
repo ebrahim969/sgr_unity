@@ -1,6 +1,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesAppIcon
+  /// assets/images/app_icon.png
+  static const String imagesAppIcon = "assets/images/app_icon.png";
+
   /// Assets for imagesEmptyListImage
   /// assets/images/emptyListImage.svg
   static const String imagesEmptyListImage = "assets/images/emptyListImage.svg";
@@ -20,9 +24,5 @@ class Assets {
   /// Assets for imagesOnBoarding3
   /// assets/images/onBoarding3.svg
   static const String imagesOnBoarding3 = "assets/images/onBoarding3.svg";
-
-  /// Assets for imagesSGRUnityIcon
-  /// assets/images/SGR_Unity_icon.png
-  static const String imagesSGRUnityIcon = "assets/images/app_icon.png";
 }
 

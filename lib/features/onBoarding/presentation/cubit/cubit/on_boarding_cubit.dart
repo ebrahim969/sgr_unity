@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/assets/assets.dart';
+import 'package:sgr_unity/core/utils/images.dart';
 import 'package:sgr_unity/features/onBoarding/data/model/on_boarding_model.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/widgets/on_boarding_widget.dart';
 

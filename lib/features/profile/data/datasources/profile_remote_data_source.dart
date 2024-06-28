@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:sgr_unity/core/common/models/blog_model.dart';
 import 'package:sgr_unity/core/error/failures.dart';
+import 'package:sgr_unity/core/utils/strings.dart';
 import 'package:sgr_unity/features/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -25,7 +26,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<List<BlogModel>> getCurrentUserBlogs() async {
     try {
       final response = await supabaseClient
-          .from('blogs')
+          .from(DbStrings.blogsTable)
           .select('*, profiles (name, profile_avatar)')
           .eq('poster_id', currentUserSession!.user.id).order('updated_at');
       final blogs = response
@@ -43,10 +44,10 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<String> uploadProfileAvatar({required File image}) async {
     try {
       await supabaseClient.storage
-          .from('profile_images')
+          .from(DbStrings.profileImagesStorage)
           .upload(image.path, image);
       return supabaseClient.storage
-          .from('profile_images')
+          .from(DbStrings.profileImagesStorage)
           .getPublicUrl(image.path);
     } catch (e) {
       throw ServerException(e.toString());
@@ -57,13 +58,13 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<UserModel> updateUserProfile({required UserModel userModel}) async {
     try {
       final getCurrentAvatar = await supabaseClient
-          .from('profiles')
+          .from(DbStrings.profilesTable)
           .select()
           .eq('id', userModel.id)
           .single();
       final currentPic = getCurrentAvatar['profile_avatar'];
       final response = await supabaseClient
-          .from('profiles')
+          .from(DbStrings.profilesTable)
           .update(userModel.toJson(currentProfileAvatar: currentPic))
           .eq('id', userModel.id)
           .select();
@@ -78,7 +79,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<List<BlogModel>> getAnyUserBlogs({required String userId}) async {
     try {
       final userBlogs = await supabaseClient
-          .from('blogs')
+          .from(DbStrings.blogsTable)
           .select('*, profiles (name, profile_avatar)')
           .eq('poster_id', userId).order('updated_at');
       return userBlogs
@@ -96,7 +97,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<UserModel> getAnyUserInfo({required String userId}) async {
     try {
       final userData = await supabaseClient
-          .from('profiles')
+          .from(DbStrings.profilesTable)
           .select()
           .eq('id', userId)
           .single();

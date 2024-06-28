@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
-import 'package:sgr_unity/core/utils/custom_fancy_shimmer_image.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_user_info.dart';
 
 class BlogFromSameAutherItem extends StatelessWidget {

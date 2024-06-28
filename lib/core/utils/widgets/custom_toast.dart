@@ -9,7 +9,7 @@ showToast(String msg, BuildContext context, {ToastificationType? type}) {
     type: type ?? ToastificationType.error,
     style: ToastificationStyle.minimal,
     autoCloseDuration: const Duration(seconds: 3),
-    title: Text(type == ToastificationType.success? 'Success' : 'Warning!!!'),
+    title: Text(type == ToastificationType.success? 'Success' : 'Warning'),
     description: Text(msg),
     alignment: Alignment.bottomCenter,
     direction: TextDirection.ltr,

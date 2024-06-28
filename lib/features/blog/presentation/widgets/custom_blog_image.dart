@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sgr_unity/core/utils/custom_fancy_shimmer_image.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/full_screen_blog_image_view.dart';
 
 class CustomBlogImage extends StatelessWidget {

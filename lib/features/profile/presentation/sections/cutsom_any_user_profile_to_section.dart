@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sgr_unity/core/utils/custom_loader.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_loader.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_info/get_any_user_info_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/sections/custom_user_info_section.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_user_information_loading.dart';

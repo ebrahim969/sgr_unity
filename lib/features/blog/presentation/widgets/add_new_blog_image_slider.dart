@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgr_unity/core/utils/custom_fancy_shimmer_image.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 
 class AddNewBlogImagesSlider extends StatelessWidget {
   const AddNewBlogImagesSlider({

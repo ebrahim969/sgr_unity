@@ -1,5 +1,6 @@
 import 'package:sgr_unity/core/common/models/blog_model.dart';
 import 'package:sgr_unity/core/error/failures.dart';
+import 'package:sgr_unity/core/utils/strings.dart';
 import 'package:sgr_unity/features/blog/data/models/saved_blog_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -15,12 +16,11 @@ class UserSavedBlogsRemoteDataSourceImpl
   final SupabaseClient supabaseClient;
 
   UserSavedBlogsRemoteDataSourceImpl(this.supabaseClient);
-  String userSavedBlogsTable = 'user_saved_blogs';
   @override
   Future<SavedBlogsModel> saveUserBlog(SavedBlogsModel saveBlogsModel) async {
     try {
       final savedUserBlog = await supabaseClient
-          .from(userSavedBlogsTable)
+          .from(DbStrings.userSavedBlogsTable)
           .insert(saveBlogsModel.toJson())
           .select();
       return SavedBlogsModel.fromJson(savedUserBlog.first);
@@ -35,7 +35,7 @@ class UserSavedBlogsRemoteDataSourceImpl
   Future<SavedBlogsModel> deleteSavedUserBlog({required String blogId}) async {
     try {
       final deletesavedBlog = await supabaseClient
-          .from(userSavedBlogsTable)
+          .from(DbStrings.userSavedBlogsTable)
           .delete()
           .eq('blog_id', blogId)
           .select();
@@ -52,7 +52,7 @@ class UserSavedBlogsRemoteDataSourceImpl
   Future<List<String>> fetchsavedUserBlogsId({required String userId}) async {
     try {
       final fetchUserSavedBlogs = await supabaseClient
-          .from(userSavedBlogsTable)
+          .from(DbStrings.userSavedBlogsTable)
           .select()
           .eq('user_id', userId);
       final userSavedBlogs = fetchUserSavedBlogs
@@ -74,7 +74,7 @@ class UserSavedBlogsRemoteDataSourceImpl
   Future<List<BlogModel>> getSavedBlogs({required List<String> blogsId}) async {
     try {
       final getSavedBlogs = await supabaseClient
-          .from('blogs')
+          .from(DbStrings.blogsTable)
           .select('*, profiles (name, profile_avatar)')
           .inFilter('id', blogsId).order('updated_at');
       return getSavedBlogs

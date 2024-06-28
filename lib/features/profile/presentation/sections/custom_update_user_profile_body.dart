@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/common/entities/user.dart';
-import 'package:sgr_unity/core/utils/pick_image.dart';
+import 'package:sgr_unity/core/utils/widgets/pick_image.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_user_avatar.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/cutsom_user_info_form.dart';
 

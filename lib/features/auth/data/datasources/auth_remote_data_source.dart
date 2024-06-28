@@ -1,4 +1,5 @@
 import 'package:sgr_unity/core/error/failures.dart';
+import 'package:sgr_unity/core/utils/strings.dart';
 import 'package:sgr_unity/features/auth/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -67,7 +68,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     try {
       if (currentUserSession != null) {
         final user = await supabaseClient
-            .from('profiles')
+            .from(DbStrings.profilesTable)
             .select()
             .eq('id', currentUserSession!.user.id)
             .single();

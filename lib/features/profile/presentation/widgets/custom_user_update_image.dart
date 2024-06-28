@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/custom_fancy_shimmer_image.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 
 class CustomUserUpdateImage extends StatelessWidget {
   const CustomUserUpdateImage({

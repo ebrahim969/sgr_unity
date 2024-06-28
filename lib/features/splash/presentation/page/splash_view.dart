@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/cache/cache_helper.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/services/service_locator.dart';
-import 'package:sgr_unity/core/utils/assets/images.dart';
-import 'package:sgr_unity/core/utils/custom_loader.dart';
-import 'package:sgr_unity/core/utils/custom_toast.dart';
+import 'package:sgr_unity/core/utils/images.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_loader.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
 
 class SplashView extends StatefulWidget {
@@ -52,7 +52,7 @@ class _SplashViewState extends State<SplashView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(Assets.imagesSGRUnityIcon, height: 200.h,),
+                Image.asset(Assets.imagesAppIcon, height: 200.h,),
                 SizedBox(
                   height: 48.h,
                 ),

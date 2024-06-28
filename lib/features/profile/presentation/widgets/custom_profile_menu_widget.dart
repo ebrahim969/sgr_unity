@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
 import 'package:sgr_unity/core/theme/enum/app_theme_enum.dart';
-import 'package:sgr_unity/core/utils/custom_dialog.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_dialog.dart';
 import 'package:sgr_unity/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:sgr_unity/features/profile/presentation/widgets/custom_sign_out_widget.dart';
 
 class CustomProfileMenuWidget extends StatelessWidget {
   const CustomProfileMenuWidget({
@@ -37,9 +36,17 @@ class CustomProfileMenuWidget extends StatelessWidget {
               ),
             ),
             const PopupMenuItem(
-              value: 'SignOut',
-              child: CustomSignOutWidget(),
-            ),
+                value: 'SignOut',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Divider(),
+                    Text(
+                      'SignOut',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ],
+                )),
           ],
           onSelected: (value) {
             if (value == 'Change theme') {
@@ -67,4 +74,3 @@ class CustomProfileMenuWidget extends StatelessWidget {
     );
   }
 }
-

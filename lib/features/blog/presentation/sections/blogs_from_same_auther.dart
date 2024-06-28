@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
-import 'package:sgr_unity/core/utils/custom_loader.dart';
-import 'package:sgr_unity/core/utils/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_loader.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/blog_from_same_auther_item.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_blogs/get_any_user_blogs_bloc.dart';
 

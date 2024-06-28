@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/common/entities/user.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
-import 'package:sgr_unity/core/utils/custom_fancy_shimmer_image.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_follow_and_message_btn.dart';
 
 class CustomUserInformationsSection extends StatelessWidget {
