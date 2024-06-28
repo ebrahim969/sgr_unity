@@ -42,7 +42,7 @@ class _CustomBlogTypesListWidgetState extends State<CustomBlogTypesListWidget> {
                       label: Text(e),
                       side: widget.selectedType.contains(e)
                           ? null
-                          : const BorderSide(color: AppPallete.borderColor),
+                          : const BorderSide(color: AppPallete.borderDarkColor),
                     ),
                   ),
                 ))

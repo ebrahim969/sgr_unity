@@ -15,7 +15,7 @@ class CustomFollowAndMessageBtn extends StatelessWidget {
           onTap: () {},
           child: const Chip(
             label: Text('Follow'),
-            side: BorderSide(color: AppPallete.borderColor),
+            side: BorderSide(color: AppPallete.borderDarkColor),
           ),
         ),
         SizedBox(
@@ -25,7 +25,7 @@ class CustomFollowAndMessageBtn extends StatelessWidget {
           onTap: () {},
           child: const Chip(
             label: Icon(Icons.message),
-            side: BorderSide(color: AppPallete.borderColor),
+            side: BorderSide(color: AppPallete.borderDarkColor),
           ),
         ),
       ],

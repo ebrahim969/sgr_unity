@@ -7,8 +7,8 @@ TabBar customTabBar(TabController? controller, List<String> topics) {
       isScrollable: true,
       indicatorSize: TabBarIndicatorSize.tab,
       controller: controller,
-      indicatorColor: AppPallete.gradient1,
-      labelColor: Colors.white,
+      indicatorColor: AppPallete.gradient2,
+      labelColor: AppPallete.gradient1,
       unselectedLabelColor: AppPallete.greyColor,
       tabs: topics.map((e) {
         return Tab(

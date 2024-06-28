@@ -7,6 +7,6 @@ Widget sliderIndecator(var activeIndex, List<dynamic>? images) {
       activeIndex: activeIndex,
       count: images!.length,
       effect: const SlideEffect(
-          dotColor: AppPallete.borderColor,
+          dotColor: AppPallete.borderDarkColor,
           activeDotColor: AppPallete.gradient3));
 }

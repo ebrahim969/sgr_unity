@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_profile_blogs.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_profile_info_widget.dart';
+import 'package:sgr_unity/features/profile/presentation/widgets/custom_profile_menu_widget.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -16,12 +16,8 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  customNavigate(context, '/SettingsView');
-                },
-                icon: const Icon(Icons.menu))
+          actions: const [
+            CustomProfileMenuWidget()
           ],
         ),
         body: Column(

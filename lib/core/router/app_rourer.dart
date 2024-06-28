@@ -9,7 +9,6 @@ import 'package:sgr_unity/features/blog/presentation/pages/edit_blog_view.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/page/on_boarding_view.dart';
 import 'package:sgr_unity/features/profile/presentation/pages/any_user_profile_view.dart';
 import 'package:sgr_unity/features/profile/presentation/pages/update_user_profile_view.dart';
-import 'package:sgr_unity/features/settings/presentation/pages/settings_view.dart';
 import 'package:sgr_unity/features/splash/presentation/page/splash_view.dart';
 import 'package:sgr_unity/main_screen.dart';
 
@@ -46,9 +45,6 @@ final GoRouter routes = GoRouter(
         path: "/AnyUserProfileView",
         builder: (context, state) => AnyUserProfileView(
               blog: state.extra as Blog,
-            )),
-    GoRoute(
-        path: "/SettingsView",
-        builder: (context, state) => const SettingsView()),        
+            )), 
   ],
 );

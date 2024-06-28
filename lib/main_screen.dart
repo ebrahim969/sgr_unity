@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:sgr_unity/core/services/service_locator.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
 import 'package:sgr_unity/features/blog/presentation/pages/blog_view.dart';
 import 'package:sgr_unity/features/blog/presentation/pages/saved_blogs_view.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
@@ -17,13 +18,19 @@ class MainScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
-      context,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      controller: _controller,
-      backgroundColor: AppPallete.darkBackgroundColor,
-      navBarStyle: NavBarStyle.style9,
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, state) {
+        return PersistentTabView(
+          context,
+          screens: _buildScreens(),
+          items: _navBarsItems(),
+          controller: _controller,
+          backgroundColor: state is AppThemeDarkMode
+              ? AppPallete.darkBackgroundColor
+              : AppPallete.lightBackgroundColor,
+          navBarStyle: NavBarStyle.style9,
+        );
+      },
     );
   }
 }

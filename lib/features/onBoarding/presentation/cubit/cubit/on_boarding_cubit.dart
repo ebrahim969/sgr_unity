@@ -24,7 +24,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
       ),
     ),
     OnBoardingWidget(
-      color: AppPallete.borderColor,
+      color: AppPallete.borderDarkColor,
       model: OnBoardingModel(
           imagePath: Assets.imagesOnBoarding2,
           title:

@@ -11,8 +11,7 @@ class UpdateUserProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(),
       body: BlocProvider.value(
         value: sl<ProfileBloc>(),
@@ -20,6 +19,6 @@ class UpdateUserProfileView extends StatelessWidget {
           user: user,
         ),
       ),
-    ));
+    );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 
 class AppTheme {
-  static _border([Color color = AppPallete.borderColor]) => OutlineInputBorder(
+  static _border(Color color) => OutlineInputBorder(
         borderSide: BorderSide(
           color: color,
           width: 3,
@@ -10,7 +10,7 @@ class AppTheme {
         borderRadius: BorderRadius.circular(10),
       );
 
-      // Dark theme
+  // Dark theme
   static final darkThemeMode = ThemeData(
     fontFamily: 'Oswald',
     scaffoldBackgroundColor: AppPallete.darkBackgroundColor,
@@ -27,12 +27,12 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
-      border: _border(),
-      enabledBorder: _border(),
+      border: _border(AppPallete.borderDarkColor),
+      enabledBorder: _border(AppPallete.borderDarkColor),
       focusedBorder: _border(AppPallete.gradient2),
       errorBorder: _border(AppPallete.errorColor),
     ),
-  ); 
+  );
 
   //Light theme
 
@@ -52,8 +52,8 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
-      border: _border(),
-      enabledBorder: _border(),
+      border: _border(AppPallete.borderLightColor),
+      enabledBorder: _border(AppPallete.borderLightColor),
       focusedBorder: _border(AppPallete.gradient2),
       errorBorder: _border(AppPallete.errorColor),
     ),

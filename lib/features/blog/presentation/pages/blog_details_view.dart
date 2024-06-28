@@ -12,8 +12,7 @@ class BlogDetailsView extends StatelessWidget {
   final Blog blog;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(),
       body: Scrollbar(
         child: Column(
@@ -55,6 +54,6 @@ class BlogDetailsView extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }

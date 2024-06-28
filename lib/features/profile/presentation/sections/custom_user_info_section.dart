@@ -74,7 +74,7 @@ class CustomUserInformationsSection extends StatelessWidget {
                       },
                       child: const Chip(
                         label: Text('Edit your profile'),
-                        side: BorderSide(color: AppPallete.borderColor),
+                        side: BorderSide(color: AppPallete.borderDarkColor),
                       ),
                     )
                   : const CustomFollowAndMessageBtn()
