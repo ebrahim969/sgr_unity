@@ -8,7 +8,7 @@ class CustomSelectBlogImageWidget extends StatelessWidget {
   const CustomSelectBlogImageWidget({
     super.key,
     required this.selectImage,
-    this.image,
+    this.image
   });
   final void Function() selectImage;
   final List<File>? image;

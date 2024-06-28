@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/blog_view_body.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
     super.key,
     required TabController tabController,
-    required this.topics,
   }) : _tabController = tabController;
 
   final TabController _tabController;
-  final List<String> topics;
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return TabBarView(
       controller: _tabController,
       children: [
@@ -21,13 +21,13 @@ class HomeViewBody extends StatelessWidget {
           blogEvent: GetAllBlogsEvent(),
         ),
         BlogViewBody(
-          blogEvent: GetTopicBlogsEvent(topics[1]),
+          blogEvent: GetTopicBlogsEvent(txt.Gis),
         ),
         BlogViewBody(
-          blogEvent: GetTopicBlogsEvent(topics[2]),
+          blogEvent: GetTopicBlogsEvent(txt.Surveying),
         ),
         BlogViewBody(
-          blogEvent: GetTopicBlogsEvent(topics[3]),
+          blogEvent: GetTopicBlogsEvent(txt.RemoteSensing),
         ),
       ],
     );

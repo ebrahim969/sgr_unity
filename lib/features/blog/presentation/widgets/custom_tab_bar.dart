@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
-TabBar customTabBar(TabController? controller, List<String> topics) {
+TabBar customTabBar(TabController? controller, context) {
+  final txt = S.of(context);
+  List<String> topics = [txt.All, txt.Gis, txt.Surveying, txt.RemoteSensing];
+
   return TabBar(
       labelPadding: const EdgeInsets.symmetric(horizontal: 12),
       isScrollable: true,

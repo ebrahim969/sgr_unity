@@ -8,6 +8,7 @@ import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_card.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class SavedViewBlogsBody extends StatelessWidget {
   const SavedViewBlogsBody({
@@ -54,7 +55,7 @@ class SavedViewBlogsBody extends StatelessWidget {
                   }),
             );
           }
-          return const Text('error');
+          return Center(child: Text(S.of(context).Somethingwentwrong));
         },
       ),
     );

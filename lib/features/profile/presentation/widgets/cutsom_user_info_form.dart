@@ -8,6 +8,7 @@ import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_btn.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_form_feild.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 import 'package:toastification/toastification.dart';
 
 class CustomUserInfoForm extends StatefulWidget {
@@ -24,10 +25,11 @@ class _CustomUserInfoFormState extends State<CustomUserInfoForm> {
   String? shortBio;
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return Column(
       children: [
         CustomAuthTextFormFeild(
-          hintText: 'Name',
+          hintText: txt.FullName,
           controller: TextEditingController(text: widget.user.name),
           onChanged: (value) {
             name = value;
@@ -49,7 +51,7 @@ class _CustomUserInfoFormState extends State<CustomUserInfoForm> {
           height: 8.h,
         ),
         CustomAuthTextFormFeild(
-          hintText: 'email',
+          hintText: txt.Email,
           controller: TextEditingController(text: widget.user.email),
           enabled: false,
         ),
@@ -61,7 +63,7 @@ class _CustomUserInfoFormState extends State<CustomUserInfoForm> {
             if (state is UpdateUserFailure) {
               showToast(state.errMessage, context);
             } else if (state is UpdateUserSuccess) {
-              showToast('Your profile updated successfully', context,
+              showToast(txt.Yourprofileupdatedsuccessfully, context,
                   type: ToastificationType.success);
               custompopNavigate(context);
             }
@@ -69,12 +71,12 @@ class _CustomUserInfoFormState extends State<CustomUserInfoForm> {
           builder: (context, state) {
             return CustomAuthBtn(
                 isLoading: state is UpdateUserLoading,
-                buttonText: 'Update',
+                buttonText: txt.Update,
                 onPressed: () {
                   if (widget.profilePic == null &&
                       name == null &&
                       shortBio == null) {
-                    showToast("You don't have change anything!", context,
+                    showToast(txt.Youdonthavechangeanything, context,
                         type: ToastificationType.error);
                   }
                   context.read<ProfileBloc>().add(UpdateUserDataEvent(

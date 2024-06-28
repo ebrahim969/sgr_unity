@@ -5,6 +5,7 @@ import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
 import 'package:sgr_unity/core/theme/enum/app_theme_enum.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_dialog.dart';
 import 'package:sgr_unity/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomProfileMenuWidget extends StatelessWidget {
   const CustomProfileMenuWidget({
@@ -13,6 +14,7 @@ class CustomProfileMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, state) {
         return PopupMenuButton(
@@ -23,27 +25,27 @@ class CustomProfileMenuWidget extends StatelessWidget {
               ? AppPallete.darkBackgroundColor
               : AppPallete.lightBackgroundColor,
           itemBuilder: (context) => [
-            const PopupMenuItem(
+            PopupMenuItem(
               value: 'Change theme',
               child: Text(
-                'Change theme',
+                txt.Changetheme,
               ),
             ),
-            const PopupMenuItem(
+            PopupMenuItem(
               value: 'Change Language',
               child: Text(
-                'Change Language',
+                txt.ChangeLanguage,
               ),
             ),
-            const PopupMenuItem(
+            PopupMenuItem(
                 value: 'SignOut',
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Divider(),
+                    const Divider(),
                     Text(
-                      'SignOut',
-                      style: TextStyle(color: Colors.red),
+                      txt.SignOut,
+                      style: const TextStyle(color: Colors.red),
                     ),
                   ],
                 )),
@@ -52,14 +54,14 @@ class CustomProfileMenuWidget extends StatelessWidget {
             if (value == 'Change theme') {
               customDialog(
                   context: context,
-                  desc: 'Cahnge your app theme',
-                  okText: 'Dark',
+                  desc: txt.Cahngeyourapptheme,
+                  okText: txt.Dark,
                   okTap: () {
                     context
                         .read<AppThemeCubit>()
                         .changeAppTheme(AppThemeEnum.dark);
                   },
-                  cancleText: 'Light',
+                  cancleText: txt.Light,
                   cancleTap: () {
                     context
                         .read<AppThemeCubit>()

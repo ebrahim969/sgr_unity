@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomSelectImagesDottedBorder extends StatelessWidget {
   const CustomSelectImagesDottedBorder({
@@ -26,19 +27,19 @@ class CustomSelectImagesDottedBorder extends StatelessWidget {
           child: SizedBox(
             height: 150.h,
             width: double.infinity,
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.folder_open_rounded,
                   size: 32,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Text(
-                  'Select your image',
-                  style: TextStyle(fontSize: 14),
+                  S.of(context).Selectyourimage,
+                  style: const TextStyle(fontSize: 14),
                 )
               ],
             ),

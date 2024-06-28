@@ -4,6 +4,7 @@ import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/onBoarding/data/function/on_boarding_visited.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/cubit/cubit/on_boarding_cubit.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomOnBoardingButton extends StatelessWidget {
   const CustomOnBoardingButton({
@@ -39,10 +40,10 @@ class CustomOnBoardingButton extends StatelessWidget {
                     color: Colors.black26, blurRadius: 3, offset: Offset(1, 4))
               ]),
           child: cubit.currentPage == 2
-              ? const Center(
+              ? Center(
                   child: Text(
-                    'Join to our unity',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    S.of(context).Jointoourunity,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 )
               : Icon(

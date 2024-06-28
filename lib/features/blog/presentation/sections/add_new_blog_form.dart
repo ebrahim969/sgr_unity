@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/blog_editor.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_types_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_select_blog_image_widget.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class AddNewBlogForm extends StatefulWidget {
   const AddNewBlogForm({
@@ -13,6 +14,7 @@ class AddNewBlogForm extends StatefulWidget {
     this.blogImage,
     required this.selectedType,
     required this.selectImage,
+    required this.txt,
   });
 
   final TextEditingController titleController;
@@ -20,6 +22,7 @@ class AddNewBlogForm extends StatefulWidget {
   final List<File>? blogImage;
   final List<String> selectedType;
   final void Function() selectImage;
+  final S txt;
   @override
   State<AddNewBlogForm> createState() => _AddNewBlogFormState();
 }
@@ -44,18 +47,21 @@ class _AddNewBlogFormState extends State<AddNewBlogForm> {
               height: 8.h,
             ),
             CustomBlogTypesListWidget(
+              txt: widget.txt,
               selectedType: widget.selectedType,
             ),
             SizedBox(
               height: 8.h,
             ),
             BlogEditor(
-                controller: widget.titleController, hintText: 'Blog Title'),
+                controller: widget.titleController,
+                hintText: widget.txt.BlogTitle),
             SizedBox(
               height: 8.h,
             ),
             BlogEditor(
-                controller: widget.contentController, hintText: 'Blog Content')
+                controller: widget.contentController,
+                hintText: widget.txt.BlogContent)
           ],
         ),
       ),

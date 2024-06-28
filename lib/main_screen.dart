@@ -10,6 +10,7 @@ import 'package:sgr_unity/features/profile/presentation/bloc/profile_bloc/profil
 import 'package:sgr_unity/features/profile/presentation/pages/profile_view.dart';
 import 'package:sgr_unity/features/search/presentation/bloc/search_bloc.dart';
 import 'package:sgr_unity/features/search/presentation/pages/search_view.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 PersistentTabController _controller = PersistentTabController();
 
@@ -23,7 +24,7 @@ class MainScreenView extends StatelessWidget {
         return PersistentTabView(
           context,
           screens: _buildScreens(),
-          items: _navBarsItems(),
+          items: _navBarsItems(context),
           controller: _controller,
           backgroundColor: state is AppThemeDarkMode
               ? AppPallete.darkBackgroundColor
@@ -50,7 +51,8 @@ List<Widget> _buildScreens() {
   ];
 }
 
-List<PersistentBottomNavBarItem> _navBarsItems() {
+List<PersistentBottomNavBarItem> _navBarsItems(context) {
+  final txt = S.of(context);
   return [
     PersistentBottomNavBarItem(
       activeColorPrimary: AppPallete.gradient3,
@@ -62,7 +64,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
         Icons.home,
         color: AppPallete.greyColor,
       ),
-      title: 'Home',
+      title: txt.Home,
     ),
     PersistentBottomNavBarItem(
         activeColorPrimary: AppPallete.gradient3,
@@ -74,7 +76,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
           Icons.search_outlined,
           color: AppPallete.greyColor,
         ),
-        title: 'Search'),
+        title: txt.Search),
     PersistentBottomNavBarItem(
         activeColorPrimary: AppPallete.gradient3,
         icon: const Icon(
@@ -85,7 +87,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
           Icons.bookmark_border,
           color: AppPallete.greyColor,
         ),
-        title: 'Saved'),
+        title: txt.Saved),
     PersistentBottomNavBarItem(
         activeColorPrimary: AppPallete.gradient3,
         icon: const Icon(
@@ -96,6 +98,6 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
           Icons.person,
           color: AppPallete.greyColor,
         ),
-        title: 'Profile'),
+        title: txt.Profile),
   ];
 }

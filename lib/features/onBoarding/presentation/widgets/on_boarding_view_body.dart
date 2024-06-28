@@ -6,6 +6,7 @@ import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/cubit/cubit/on_boarding_cubit.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/widgets/custom_on_boarding_indecator.dart';
 import 'package:sgr_unity/features/onBoarding/presentation/widgets/custom_onBoarding_btn.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
@@ -37,7 +38,7 @@ class OnBoardingViewBody extends StatelessWidget {
                     onBoardingCubit.skip();
                   },
                   child: Text(
-                    'Skip',
+                    S.of(context).Skip,
                     style: TextStyle(
                         color: AppPallete.whiteColor, fontSize: 16.sp),
                   ),

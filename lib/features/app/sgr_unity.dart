@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgr_unity/core/router/app_rourer.dart';
 import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
 import 'package:sgr_unity/core/theme/theme.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:sgr_unity/generated/l10n.dart';
+import 'package:sgr_unity/features/app/custom_material_app.dart';
 
 class SGRBlogs extends StatelessWidget {
   const SGRBlogs({super.key});
@@ -20,31 +18,11 @@ class SGRBlogs extends StatelessWidget {
         return BlocBuilder<AppThemeCubit, AppThemeState>(
           builder: (context, state) {
             if (state is AppThemeLightMode) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.lightThemeMode,
-                routerConfig: routes,
-              );
+              return CustomMaterialApp(theme: AppTheme.lightThemeMode,);
             } else if (state is AppThemeDarkMode) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.darkThemeMode,
-                routerConfig: routes,
-              );
+              return CustomMaterialApp(theme: AppTheme.darkThemeMode,);
             } else {
-              return MaterialApp.router(
-                locale: const Locale('en'),
-                localizationsDelegates: const [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.darkThemeMode,
-                routerConfig: routes,
-              );
+              return CustomMaterialApp(theme: AppTheme.darkThemeMode,);
             }
           },
         );
@@ -52,3 +30,4 @@ class SGRBlogs extends StatelessWidget {
     );
   }
 }
+

@@ -18,7 +18,6 @@ class BlogsView extends StatefulWidget {
 class _BlogsViewState extends State<BlogsView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  List<String> topics = ['All', 'Gis', 'Surveying', 'Remote Sensing'];
   @override
   void initState() {
     final userId =
@@ -58,9 +57,9 @@ class _BlogsViewState extends State<BlogsView>
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
         ],
-        bottom: customTabBar(_tabController, topics),
+        bottom: customTabBar(_tabController, context),
       ),
-      body: HomeViewBody(tabController: _tabController, topics: topics),
+      body: HomeViewBody(tabController: _tabController),
     );
   }
 }

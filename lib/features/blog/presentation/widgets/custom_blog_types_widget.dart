@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomBlogTypesListWidget extends StatefulWidget {
   const CustomBlogTypesListWidget({
     super.key,
     required this.selectedType,
+    required this.txt,
   });
   final List<String> selectedType;
+  final S txt;
   @override
   State<CustomBlogTypesListWidget> createState() =>
       _CustomBlogTypesListWidgetState();
@@ -20,9 +23,9 @@ class _CustomBlogTypesListWidgetState extends State<CustomBlogTypesListWidget> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          'Surveying',
-          'Gis',
-          'Remote Sensing',
+          widget.txt.Surveying,
+          widget.txt.Gis,
+          widget.txt.RemoteSensing,
         ]
             .map((e) => Padding(
                   padding: const EdgeInsets.all(5.0),

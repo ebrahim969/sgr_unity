@@ -9,6 +9,7 @@ import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/core/utils/widgets/pop_menu_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 import 'package:toastification/toastification.dart';
 
 class CustomBlogUserInfo extends StatelessWidget {
@@ -21,6 +22,7 @@ class CustomBlogUserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return BlocBuilder<GetCurrentUserBloc, GetUsersState>(
       builder: (context, state) {
         if (state is GetUserSuccess) {
@@ -56,20 +58,21 @@ class CustomBlogUserInfo extends StatelessWidget {
                 blog.posterId == state.user.id
                     ? BlocListener<BlogBloc, BlogState>(
                         listener: (context, state) {
-                          if (state is UnitBlogSuccess) {
-                            showToast("Blog deleted successfully", context,
+                          if (state is DeleteBlogSuccess) {
+                            showToast(txt.Blogdeletedsuccessfully, context,
                                 type: ToastificationType.success);
                             customReplacementNavigate(
                                 context, '/MainScreenView');
                           } else if (state is BlogFailure) {
                             showToast(
-                              "Something went wrong, please try later!",
+                              txt.Somethingwentwrong,
                               context,
                             );
                           }
                         },
                         child: PopUpMenueWidget(
                           blog: blog,
+                          txt: txt,
                         ),
                       )
                     : const SizedBox()

@@ -7,6 +7,7 @@ import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_btn.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_form_feild.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomSignUpForm extends StatefulWidget {
   const CustomSignUpForm({super.key});
@@ -31,6 +32,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return Form(
       key: signUpFormKey,
       child: Column(
@@ -39,16 +41,16 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
           SizedBox(height: 30.h),
           CustomAuthTextFormFeild(
               maxLength: 16,
-              hintText: 'Full Name',
+              hintText: txt.FullName,
               controller: fullNameController),
           //
           SizedBox(height: 15.h),
           CustomAuthTextFormFeild(
-              hintText: 'Email', controller: emailController),
+              hintText: txt.Email, controller: emailController),
           //
           SizedBox(height: 15.h),
           CustomAuthTextFormFeild(
-            hintText: 'Password',
+            hintText: txt.Password,
             controller: passwordController,
             isObscureText: true,
           ),
@@ -64,13 +66,13 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
                   context,
                   '/SignInView',
                 );
-                showToast('Please confirm your email and Sign-In', context);
+                showToast(txt.PleaseconfirmyouremailandSignIn, context);
               }
             },
             builder: (context, state) {
               return CustomAuthBtn(
                   isLoading: state is AuthLoading ? true : false,
-                  buttonText: 'SignUp',
+                  buttonText: txt.SignUp,
                   onPressed: () {
                     if (signUpFormKey.currentState!.validate()) {
                       context.read<AuthBloc>().add(AuthSignUp(
@@ -87,7 +89,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Already have an account? ',
+                txt.Alreadyhaveanaccount,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               TextButton(
@@ -95,7 +97,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
                   customReplacementNavigate(context, '/SignInView');
                 },
                 child: Text(
-                  'SignIn',
+                  txt.SignIn,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: AppPallete.gradient3,
                         fontWeight: FontWeight.bold,

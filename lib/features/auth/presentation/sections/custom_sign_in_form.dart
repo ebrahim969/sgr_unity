@@ -7,6 +7,7 @@ import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_btn.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/custom_auth_form_feild.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomSignInForm extends StatefulWidget {
   const CustomSignInForm({super.key});
@@ -29,17 +30,18 @@ class _CustomSignUpFormState extends State<CustomSignInForm> {
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return Form(
       key: signInFormKey,
       child: Column(
         children: [
           SizedBox(height: 30.h),
           CustomAuthTextFormFeild(
-              hintText: 'Email', controller: emailController),
+              hintText: txt.Email, controller: emailController),
           //
           SizedBox(height: 15.h),
           CustomAuthTextFormFeild(
-            hintText: 'Password',
+            hintText: txt.Password,
             controller: passwordController,
             isObscureText: true,
           ),
@@ -57,7 +59,7 @@ class _CustomSignUpFormState extends State<CustomSignInForm> {
             builder: (context, state) {
               return CustomAuthBtn(
                   isLoading: state is AuthLoading ? true : false,
-                  buttonText: 'SignIn',
+                  buttonText: txt.SignIn,
                   onPressed: () {
                     if (signInFormKey.currentState!.validate()) {
                       context.read<AuthBloc>().add(AuthSignIn(
@@ -73,7 +75,7 @@ class _CustomSignUpFormState extends State<CustomSignInForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Don't have an account? ",
+                txt.Donthaveanaccount,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               TextButton(
@@ -81,7 +83,7 @@ class _CustomSignUpFormState extends State<CustomSignInForm> {
                   customReplacementNavigate(context, '/SignUpView');
                 },
                 child: Text(
-                  'SignUp',
+                  txt.SignUp,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: AppPallete.gradient3,
                         fontWeight: FontWeight.bold,

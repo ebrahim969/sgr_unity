@@ -4,6 +4,7 @@ import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/utils/widgets/background_circles_widget.dart';
 import 'package:sgr_unity/features/auth/presentation/sections/custom_sign_up_form.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/join_to_unity_widget.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -29,9 +30,9 @@ class SignUpView extends StatelessWidget {
                     height: 115.h,
                   ),
                 ),
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                     child: JoinToUnityWidget(
-                  txt: 'Join to ',
+                  txt: S.of(context).Jointo,
                 )),
                 const SliverToBoxAdapter(
                   child: CustomSignUpForm(),

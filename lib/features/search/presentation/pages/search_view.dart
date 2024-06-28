@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/features/search/presentation/bloc/search_bloc.dart';
 import 'package:sgr_unity/features/search/presentation/sections/custom_search_view_body.dart';
 import 'package:sgr_unity/features/search/presentation/widgets/custom_search_text_feild.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -16,9 +17,9 @@ class SearchView extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Explore',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(
+              S.of(context).Explore,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 16.h,

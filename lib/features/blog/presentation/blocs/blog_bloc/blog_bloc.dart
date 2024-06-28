@@ -59,7 +59,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       add(GetAllBlogsEvent());
       emit(BlogFailure(failure.message));
     }, (blog) {
-      emit(UnitBlogSuccess());
+      emit(UploadBlogSuccess());
     });
   }
 
@@ -91,7 +91,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
     res.fold((failure) {
       emit(BlogFailure(failure.message));
     }, (success) {
-      emit(UnitBlogSuccess());
+      emit(DeleteBlogSuccess());
       add(GetAllBlogsEvent());
     });
   }

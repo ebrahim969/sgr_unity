@@ -21,5 +21,72 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Addnewblog": MessageLookupByLibrary.simpleMessage("اضافه بلوج جديد"),
+        "All": MessageLookupByLibrary.simpleMessage("الكل"),
+        "Alreadyhaveanaccount":
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟ "),
+        "BlogContent": MessageLookupByLibrary.simpleMessage("محتوي البلوج"),
+        "BlogTitle": MessageLookupByLibrary.simpleMessage("عنوان البلوج"),
+        "Blogdeletedsuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم حذف البلوج بنجاح"),
+        "Blogupdatedsuccessfuly":
+            MessageLookupByLibrary.simpleMessage("تم تحديث البلوج بنجاح"),
+        "Cahngeyourapptheme":
+            MessageLookupByLibrary.simpleMessage("تغيير شكل تطبيقك"),
+        "ChangeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغه"),
+        "Changetheme": MessageLookupByLibrary.simpleMessage("تغيير الشكل"),
+        "Dark": MessageLookupByLibrary.simpleMessage("غامق"),
+        "Donthaveanaccount":
+            MessageLookupByLibrary.simpleMessage("لا تمتلك حساب؟ "),
+        "EditYourProfile": MessageLookupByLibrary.simpleMessage("تعديل حسابك"),
+        "Email": MessageLookupByLibrary.simpleMessage("ايميل"),
+        "Explore": MessageLookupByLibrary.simpleMessage("تصفح"),
+        "Followers": MessageLookupByLibrary.simpleMessage("يتابعك"),
+        "Following": MessageLookupByLibrary.simpleMessage("تتابع"),
+        "FullName": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
+        "Gis": MessageLookupByLibrary.simpleMessage("نظم المعلومات"),
+        "Home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
+        "Jointo": MessageLookupByLibrary.simpleMessage("انضم الي "),
+        "Jointoourunity":
+            MessageLookupByLibrary.simpleMessage("انضم الي مجتمعنا"),
+        "Light": MessageLookupByLibrary.simpleMessage("فاتح"),
+        "OnBoarding1": MessageLookupByLibrary.simpleMessage(
+            "Discover insightful blogs and stay updated with the latest trends in surveying, remote sensing, and GIS."),
+        "OnBoarding2": MessageLookupByLibrary.simpleMessage(
+            "Connect with professionals and enthusiasts, and engage in meaningful discussions on your favorite topics."),
+        "OnBoarding3": MessageLookupByLibrary.simpleMessage(
+            "Easily find, read, and follow blogs that matter to you, all in one place."),
+        "OtherBlogsFrom":
+            MessageLookupByLibrary.simpleMessage("منشورات اخري من "),
+        "Password": MessageLookupByLibrary.simpleMessage("باسوورد"),
+        "PleaseconfirmyouremailandSignIn": MessageLookupByLibrary.simpleMessage(
+            "من فضلك تأكيد الايميل ثم عتسجيل الدخول"),
+        "Profile": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "RemoteSensing": MessageLookupByLibrary.simpleMessage("الاستشعار"),
+        "Saved": MessageLookupByLibrary.simpleMessage("الحافظه"),
+        "SavedBlogs": MessageLookupByLibrary.simpleMessage("البلوجات المحفوظه"),
+        "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "Selectyourimage": MessageLookupByLibrary.simpleMessage("اختر الصور"),
+        "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "SignOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "SignUp": MessageLookupByLibrary.simpleMessage("انضم"),
+        "Skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "Somethingwentwrong":
+            MessageLookupByLibrary.simpleMessage("حدث شئ خطأ ، حاول مجددا!"),
+        "Surveying": MessageLookupByLibrary.simpleMessage("المساحه"),
+        "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "Youdonthavechangeanything":
+            MessageLookupByLibrary.simpleMessage("انت لم تغير اي شئ!"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+        "deletethisblog":
+            MessageLookupByLibrary.simpleMessage("هل انت تريد مسح هذا البلوج؟"),
+        "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "ismissing": MessageLookupByLibrary.simpleMessage("نسيته!"),
+        "minread": MessageLookupByLibrary.simpleMessage("دقايق قراءه"),
+        "success": MessageLookupByLibrary.simpleMessage("نجح"),
+        "warning": MessageLookupByLibrary.simpleMessage("!احذر"),
+        "whatareyoulookingfor":
+            MessageLookupByLibrary.simpleMessage("علي ماذا تريد البحث")
+      };
 }

@@ -10,6 +10,7 @@ import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_image.d
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_user_info.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_saved_blogs_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_share_blog_widget.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomBlogCard extends StatelessWidget {
   const CustomBlogCard({super.key, required this.blog});
@@ -75,7 +76,7 @@ class CustomBlogCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${formatDateTime(blog.updatedAt)} . ${calculateReadingTime(blog.content)} min read',
+                  '${formatDateTime(blog.updatedAt)} . ${calculateReadingTime(blog.content)}${S.of(context).minread}',
                   style:
                       TextStyle(fontSize: 14.sp, color: AppPallete.greyColor),
                 ),
@@ -98,4 +99,3 @@ class CustomBlogCard extends StatelessWidget {
     );
   }
 }
-

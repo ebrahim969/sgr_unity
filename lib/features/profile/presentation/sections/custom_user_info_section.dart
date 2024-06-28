@@ -5,6 +5,7 @@ import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_fancy_shimmer_image.dart';
 import 'package:sgr_unity/features/profile/presentation/widgets/custom_follow_and_message_btn.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomUserInformationsSection extends StatelessWidget {
   const CustomUserInformationsSection(
@@ -13,6 +14,7 @@ class CustomUserInformationsSection extends StatelessWidget {
   final bool isCurrentUser;
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -35,9 +37,9 @@ class CustomUserInformationsSection extends StatelessWidget {
               SizedBox(
                 width: 16.w,
               ),
-              const Text(
-                "0 Followers",
-                style: TextStyle(fontSize: 14),
+              Text(
+                "0 ${txt.Followers}",
+                style: const TextStyle(fontSize: 14),
               ),
               SizedBox(
                 width: 8.w,
@@ -50,9 +52,9 @@ class CustomUserInformationsSection extends StatelessWidget {
               SizedBox(
                 width: 8.w,
               ),
-              const Text(
-                "0 Following",
-                style: TextStyle(fontSize: 14),
+              Text(
+                "0 ${txt.Following}",
+                style: const TextStyle(fontSize: 14),
               )
             ],
           ),
@@ -72,9 +74,10 @@ class CustomUserInformationsSection extends StatelessWidget {
                         customNavigate(context, '/UpdateUserProfileView',
                             extra: user);
                       },
-                      child: const Chip(
-                        label: Text('Edit your profile'),
-                        side: BorderSide(color: AppPallete.borderDarkColor),
+                      child: Chip(
+                        label: Text(txt.EditYourProfile),
+                        side:
+                            const BorderSide(color: AppPallete.borderDarkColor),
                       ),
                     )
                   : const CustomFollowAndMessageBtn()

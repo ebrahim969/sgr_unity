@@ -5,6 +5,7 @@ import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/saved_view_blogs_body.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class SavedBlogView extends StatefulWidget {
   const SavedBlogView({super.key});
@@ -27,7 +28,7 @@ class _SavedBlogViewState extends State<SavedBlogView> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70.h,
-        title: const Text('Saved Blogs'),
+        title: Text(S.of(context).SavedBlogs),
         leading: const Icon(
           Icons.save_alt,
           color: AppPallete.gradient3,

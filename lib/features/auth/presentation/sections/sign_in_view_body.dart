@@ -4,6 +4,7 @@ import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/auth/presentation/sections/custom_sign_in_form.dart';
 import 'package:sgr_unity/core/utils/widgets/background_circles_widget.dart';
 import 'package:sgr_unity/features/auth/presentation/widgets/join_to_unity_widget.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -28,9 +29,9 @@ class SignInViewBody extends StatelessWidget {
                   height: 150.h,
                 ),
               ),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                   child: JoinToUnityWidget(
-                txt: 'Welcome to ',
+                txt: S.of(context).Welcometo,
               )),
               const SliverToBoxAdapter(
                 child: CustomSignInForm(),

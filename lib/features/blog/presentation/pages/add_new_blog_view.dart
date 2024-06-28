@@ -10,6 +10,7 @@ import 'package:sgr_unity/core/utils/widgets/pick_image.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/add_new_blog_form.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class AddNewBlogView extends StatefulWidget {
   const AddNewBlogView({super.key});
@@ -56,17 +57,18 @@ class _AddNewBlogViewState extends State<AddNewBlogView> {
 
   @override
   Widget build(BuildContext context) {
+    final txt = S.of(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70.h,
-        title: const Text('Add new blog'),
+        title: Text(txt.Addnewblog),
         centerTitle: true,
         actions: [
           BlocConsumer<BlogBloc, BlogState>(
             listener: (context, state) {
               if (state is BlogFailure) {
                 showToast(state.message, context);
-              } else if (state is UnitBlogSuccess) {
+              } else if (state is UploadBlogSuccess) {
                 customReplacementNavigate(context, '/MainScreenView');
               }
             },
@@ -88,6 +90,7 @@ class _AddNewBlogViewState extends State<AddNewBlogView> {
       body: Form(
           key: formKey,
           child: AddNewBlogForm(
+            txt: txt,
             titleController: titleController,
             contentController: contentController,
             selectedType: selectedType,
