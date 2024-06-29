@@ -63,9 +63,9 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Oswald
+    - family: Noto
       fonts:
-        - asset: assets/fonts/Oswald-Regular.ttf
+        - asset: assets/fonts/NotoKufiArabic-Regular.ttf
 
 flutter_assets:
   assets_path: assets/images

@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "All": MessageLookupByLibrary.simpleMessage("All"),
         "Alreadyhaveanaccount":
             MessageLookupByLibrary.simpleMessage("Already have an account? "),
+        "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "BlogContent": MessageLookupByLibrary.simpleMessage("Blog Content"),
         "BlogTitle": MessageLookupByLibrary.simpleMessage("Blog Title"),
         "Blogdeletedsuccessfully":
@@ -37,13 +38,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "ChangeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "Changetheme": MessageLookupByLibrary.simpleMessage("Change theme"),
+        "Changeyourapplanguage":
+            MessageLookupByLibrary.simpleMessage("Change your app language"),
         "Dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "Donthaveanaccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "EditYourProfile":
             MessageLookupByLibrary.simpleMessage("Edit your profile"),
         "Email": MessageLookupByLibrary.simpleMessage("Email"),
+        "English": MessageLookupByLibrary.simpleMessage("English"),
         "Explore": MessageLookupByLibrary.simpleMessage("Explore"),
+        "Follow": MessageLookupByLibrary.simpleMessage("Follow"),
         "Followers": MessageLookupByLibrary.simpleMessage("Followers"),
         "Following": MessageLookupByLibrary.simpleMessage("Following"),
         "FullName": MessageLookupByLibrary.simpleMessage("Full Name"),

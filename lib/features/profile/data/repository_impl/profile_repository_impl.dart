@@ -16,6 +16,9 @@ class ProfileRepositoryImpl implements ProfileRepository {
   @override
   Future<Either<Failures, List<Blog>>> getCurrentUserBlogs() async {
     try {
+      if (!(await connectionChecker.isConnected)) {
+        return left(Failures('No Internet, Please try later'));
+      }
       final blogs = await profileRemoteDataSource.getCurrentUserBlogs();
       return right(blogs);
     } on ServerException catch (e) {

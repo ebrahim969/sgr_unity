@@ -1,0 +1,1 @@
+enum AppLanguageEnum{initial, arabic, english}

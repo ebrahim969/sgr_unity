@@ -7,6 +7,7 @@ import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/custom_blog_images_slider.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_image.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_user_info.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class BlogDetailsWidget extends StatelessWidget {
   const BlogDetailsWidget({super.key, required this.blog});
@@ -30,7 +31,7 @@ class BlogDetailsWidget extends StatelessWidget {
           height: 8.h,
         ),
         Text(
-          '${formatDateTime(blog.updatedAt)} . ${calculateReadingTime(blog.content)} min read',
+          '${formatDateTime(blog.updatedAt)} . ${calculateReadingTime(blog.content)} ${S.of(context).minread}',
           style: TextStyle(fontSize: 14.sp, color: AppPallete.greyColor),
         ),
         SizedBox(

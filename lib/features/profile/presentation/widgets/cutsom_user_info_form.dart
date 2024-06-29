@@ -40,7 +40,7 @@ class _CustomUserInfoFormState extends State<CustomUserInfoForm> {
           height: 8.h,
         ),
         CustomAuthTextFormFeild(
-          hintText: 'Short Bio',
+          hintText: txt.ShortBio,
           controller: TextEditingController(text: widget.user.shortBio),
           onChanged: (value) {
             shortBio = value;

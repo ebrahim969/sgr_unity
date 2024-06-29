@@ -25,7 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Addnewblog": MessageLookupByLibrary.simpleMessage("اضافه بلوج جديد"),
         "All": MessageLookupByLibrary.simpleMessage("الكل"),
         "Alreadyhaveanaccount":
-            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟ "),
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
+        "Arabic": MessageLookupByLibrary.simpleMessage("العربيه"),
         "BlogContent": MessageLookupByLibrary.simpleMessage("محتوي البلوج"),
         "BlogTitle": MessageLookupByLibrary.simpleMessage("عنوان البلوج"),
         "Blogdeletedsuccessfully":
@@ -36,12 +37,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير شكل تطبيقك"),
         "ChangeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغه"),
         "Changetheme": MessageLookupByLibrary.simpleMessage("تغيير الشكل"),
+        "Changeyourapplanguage":
+            MessageLookupByLibrary.simpleMessage("تغيير لغه تطبيقك"),
         "Dark": MessageLookupByLibrary.simpleMessage("غامق"),
         "Donthaveanaccount":
-            MessageLookupByLibrary.simpleMessage("لا تمتلك حساب؟ "),
+            MessageLookupByLibrary.simpleMessage("لا تمتلك حساب؟"),
         "EditYourProfile": MessageLookupByLibrary.simpleMessage("تعديل حسابك"),
         "Email": MessageLookupByLibrary.simpleMessage("ايميل"),
+        "English": MessageLookupByLibrary.simpleMessage("الانجليزيه"),
         "Explore": MessageLookupByLibrary.simpleMessage("تصفح"),
+        "Follow": MessageLookupByLibrary.simpleMessage("متابعه"),
         "Followers": MessageLookupByLibrary.simpleMessage("يتابعك"),
         "Following": MessageLookupByLibrary.simpleMessage("تتابع"),
         "FullName": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
@@ -59,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Easily find, read, and follow blogs that matter to you, all in one place."),
         "OtherBlogsFrom":
             MessageLookupByLibrary.simpleMessage("منشورات اخري من "),
-        "Password": MessageLookupByLibrary.simpleMessage("باسوورد"),
+        "Password": MessageLookupByLibrary.simpleMessage("كلمه المرور"),
         "PleaseconfirmyouremailandSignIn": MessageLookupByLibrary.simpleMessage(
             "من فضلك تأكيد الايميل ثم عتسجيل الدخول"),
         "Profile": MessageLookupByLibrary.simpleMessage("الحساب"),
@@ -76,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حدث شئ خطأ ، حاول مجددا!"),
         "Surveying": MessageLookupByLibrary.simpleMessage("المساحه"),
         "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "Welcometo": MessageLookupByLibrary.simpleMessage("مرحبا في "),
         "Youdonthavechangeanything":
             MessageLookupByLibrary.simpleMessage("انت لم تغير اي شئ!"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),

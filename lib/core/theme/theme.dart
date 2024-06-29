@@ -12,7 +12,7 @@ class AppTheme {
 
   // Dark theme
   static final darkThemeMode = ThemeData(
-    fontFamily: 'Oswald',
+    fontFamily: 'Noto',
     scaffoldBackgroundColor: AppPallete.darkBackgroundColor,
     brightness: Brightness.dark,
     appBarTheme: const AppBarTheme(
@@ -37,7 +37,7 @@ class AppTheme {
   //Light theme
 
   static final lightThemeMode = ThemeData(
-    fontFamily: 'Oswald',
+    fontFamily: 'Noto',
     scaffoldBackgroundColor: AppPallete.lightBackgroundColor,
     brightness: Brightness.light,
     appBarTheme: const AppBarTheme(

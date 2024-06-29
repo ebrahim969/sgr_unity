@@ -52,5 +52,9 @@
     "Yourprofileupdatedsuccessfully" : "Your profile updated successfully",
     "Followers" : "Followers",
     "Following" : "Following",
-    "PleaseconfirmyouremailandSignIn" : "Please confirm your email and SignIn"
+    "Follow" : "Follow",
+    "PleaseconfirmyouremailandSignIn" : "Please confirm your email and SignIn",
+    "Changeyourapplanguage" : "Change your app language",
+    "Arabic" : "Arabic",
+    "English" : "English"
 }

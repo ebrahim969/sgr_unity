@@ -580,11 +580,51 @@ class S {
     );
   }
 
+  /// `Follow`
+  String get Follow {
+    return Intl.message(
+      'Follow',
+      name: 'Follow',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please confirm your email and SignIn`
   String get PleaseconfirmyouremailandSignIn {
     return Intl.message(
       'Please confirm your email and SignIn',
       name: 'PleaseconfirmyouremailandSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your app language`
+  String get Changeyourapplanguage {
+    return Intl.message(
+      'Change your app language',
+      name: 'Changeyourapplanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get Arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'Arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get English {
+    return Intl.message(
+      'English',
+      name: 'English',
       desc: '',
       args: [],
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class CustomFollowAndMessageBtn extends StatelessWidget {
   const CustomFollowAndMessageBtn({
@@ -13,9 +14,9 @@ class CustomFollowAndMessageBtn extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {},
-          child: const Chip(
-            label: Text('Follow'),
-            side: BorderSide(color: AppPallete.borderDarkColor),
+          child: Chip(
+            label: Text(S.of(context).Follow),
+            side: const BorderSide(color: AppPallete.borderDarkColor),
           ),
         ),
         SizedBox(
