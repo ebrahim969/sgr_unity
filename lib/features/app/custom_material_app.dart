@@ -17,39 +17,37 @@ class CustomMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeLanguageCubit, ChangeLanguageState>(
       builder: (context, state) {
-        if(state is ArabicLanguage)
-        {
+        if (state is ArabicLanguage) {
           return MaterialApp.router(
-          locale: const Locale('ar'),
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          debugShowCheckedModeBanner: false,
-          theme: theme,
-          routerConfig: routes,
-        );
-        }else if (state is EnglishLanguage)
-        {
+            locale: const Locale('ar'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            theme: theme,
+            routerConfig: routes,
+          );
+        } else if (state is EnglishLanguage) {
           return MaterialApp.router(
-          locale: const Locale('en'),
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          debugShowCheckedModeBanner: false,
-          theme: theme,
-          routerConfig: routes,
-        );
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            theme: theme,
+            routerConfig: routes,
+          );
         }
         return MaterialApp.router(
-          locale: const Locale('ar'),
+          locale: const Locale('en'),
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
