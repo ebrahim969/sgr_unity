@@ -1,3 +1,4 @@
+import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Failures {
@@ -12,25 +13,31 @@ class ServerException extends Failures {
   factory ServerException.fromAuthError(AuthException error) {
     switch (error.message) {
       case 'Invalid login credentials':
-        return ServerException('Invalid email or password. Please try again.');
+        return ServerException( isArabic()? 'خطأ في الايميل او كلمه المرور، حاول مجددا' :'Invalid email or password. Please try again.');
       case 'AuthRetryableFetchError':
-        return ServerException('Please check your internet connection.');
+        return ServerException(isArabic()? 'من فضلك ، تفقد اتصالك بالأنترنت' :'Please check your internet connection.');
       case 'Email not confirmed':
-        return ServerException('Please confirm your email before signing in.');  
+        return ServerException(isArabic()? 'قم بتأكيد الايميل قبل عمليه تسجيل الدخول' :'Please confirm your email before signing in.');
       case 'User already registered':
-        return ServerException('This email is already registered. Please sign in instead.');
+        return ServerException(
+            isArabic()? 'هذا الايميل موجود بالفعل، قم بتسجيل الدخول' :'This email is already registered. Please sign in instead.');
       case 'Password should be at least 6 characters':
-        return ServerException('Password is too weak. Please use a stronger password.');  
+        return ServerException(
+            isArabic()? 'كلمه المرور ضعيفه جدا' :'Password is too weak. Please use a stronger password.');
       case 'Invalid email address':
-        return ServerException('The email address is invalid. Please check and try again.'); 
+        return ServerException(
+            isArabic()? 'هذا الايميل غير صحيح' :'The email address is invalid. Please check and try again.');
       case 'User not found':
-        return ServerException('No account found with this email. Please sign up first.');
+        return ServerException(
+            isArabic()? 'لا يوجد حساب بهذا الايميل، سجل اولا' :'No account found with this email. Please sign up first.');
       default:
         if (error.message.contains('Network error')) {
-          return ServerException('Network error. Please check your internet connection.');
+          return ServerException(
+              isArabic()? 'خطأ في الشبكه، تفقد الانترنت' :'Network error. Please check your internet connection.');
         } else {
-          return ServerException('An unexpected error occurred. Please try again.');
-        }       
+          return ServerException(
+              isArabic()? 'هناك مشكله ما ، حاول مره اخري' :'An unexpected error occurred. Please try again.');
+        }
     }
   }
 }

@@ -80,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Somethingwentwrong":
             MessageLookupByLibrary.simpleMessage("حدث شئ خطأ ، حاول مجددا!"),
         "Surveying": MessageLookupByLibrary.simpleMessage("المساحه"),
+        "Tryagain": MessageLookupByLibrary.simpleMessage("حاول مجددا"),
         "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "Welcometo": MessageLookupByLibrary.simpleMessage("مرحبا في "),
         "Youdonthavechangeanything":

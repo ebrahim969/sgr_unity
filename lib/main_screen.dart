@@ -26,9 +26,9 @@ class MainScreenView extends StatelessWidget {
           screens: _buildScreens(),
           items: _navBarsItems(context),
           controller: _controller,
-          backgroundColor: state is AppThemeDarkMode
-              ? AppPallete.darkBackgroundColor
-              : AppPallete.lightBackgroundColor,
+          backgroundColor: state is AppThemeLightMode
+              ? AppPallete.lightBackgroundColor
+              : AppPallete.darkBackgroundColor,
           navBarStyle: NavBarStyle.style9,
         );
       },

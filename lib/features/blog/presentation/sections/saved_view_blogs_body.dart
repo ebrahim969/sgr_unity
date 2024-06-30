@@ -7,8 +7,8 @@ import 'package:sgr_unity/core/utils/widgets/custom_loader.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_card.dart';
+import 'package:sgr_unity/core/utils/widgets/try_again_widget.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
-import 'package:sgr_unity/generated/l10n.dart';
 
 class SavedViewBlogsBody extends StatelessWidget {
   const SavedViewBlogsBody({
@@ -17,6 +17,8 @@ class SavedViewBlogsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userId =
+        (context.read<GetCurrentUserBloc>().state as GetUserSuccess).user.id;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: BlocConsumer<UserSavedBlogsBloc, UserSavedBlogsState>(
@@ -38,10 +40,6 @@ class SavedViewBlogsBody extends StatelessWidget {
             return RefreshIndicator(
               color: AppPallete.gradient1,
               onRefresh: () async {
-                final userId =
-                    (context.read<GetCurrentUserBloc>().state as GetUserSuccess)
-                        .user
-                        .id;
                 context
                     .read<UserSavedBlogsBloc>()
                     .add(GetUserSavedBlogsEvent(userId));
@@ -55,7 +53,11 @@ class SavedViewBlogsBody extends StatelessWidget {
                   }),
             );
           }
-          return Center(child: Text(S.of(context).Somethingwentwrong));
+          return TryAgainWidget(onTap: () {
+            context
+                    .read<UserSavedBlogsBloc>()
+                    .add(GetUserSavedBlogsEvent(userId));
+          },);
         },
       ),
     );

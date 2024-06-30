@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
-import 'package:sgr_unity/core/common/entities/user.dart';
 import 'package:sgr_unity/core/usecase/usecase.dart';
 import 'package:sgr_unity/features/profile/domain/usecase/get_user_blogs.dart';
 import 'package:sgr_unity/features/profile/domain/usecase/update_user_data.dart';

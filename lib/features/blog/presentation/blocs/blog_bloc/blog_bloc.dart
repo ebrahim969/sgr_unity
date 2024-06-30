@@ -35,9 +35,6 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
         _updateBlog = updateBlog,
         _profileBloc = profileBloc,
         super(BlogInitial()) {
-    on<BlogEvent>((event, emit) async {
-      emit(BlogLoading());
-    });
     on<UploadBlogEvent>(_onUploadBlogEvent);
     on<GetAllBlogsEvent>(_onGetAllBlogsEvent);
     on<GetTopicBlogsEvent>(_onGetTopicsBlogsEvent);
@@ -47,6 +44,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   void _onUploadBlogEvent(
       UploadBlogEvent event, Emitter<BlogState> emit) async {
+    emit(UploadBlogLoading());
     final res = await _uploadBlog(UploadBlogParams(
       event.image,
       event.title,
@@ -57,7 +55,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
     res.fold((failure) {
       add(GetAllBlogsEvent());
-      emit(BlogFailure(failure.message));
+      emit(UploadBlogFailure(failure.message));
     }, (blog) {
       emit(UploadBlogSuccess());
     });
@@ -65,9 +63,10 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   void _onGetAllBlogsEvent(
       GetAllBlogsEvent event, Emitter<BlogState> emit) async {
+    emit(GetAllBlogsLoading());
     final res = await _getAllBlogs(NoParams());
     res.fold((failure) {
-      emit(BlogFailure(failure.message));
+      emit(GetAllBlogsFailure(failure.message));
     }, (blogs) {
       emit(GetAllBlogSuccess(blogs));
     });
@@ -75,9 +74,10 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   void _onGetTopicsBlogsEvent(
       GetTopicBlogsEvent event, Emitter<BlogState> emit) async {
+    emit(GetAllBlogsLoading());
     final res = await _getTopicBlogs(GetTopicBlogsParams(topic: event.topic));
     res.fold((failure) {
-      emit(BlogFailure(failure.message));
+      emit(GetAllBlogsFailure(failure.message));
     }, (blogs) {
       emit(GetAllBlogSuccess(blogs));
     });
@@ -85,11 +85,12 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   FutureOr<void> _onDeleteBlogEvent(
       DeleteBlogEvent event, Emitter<BlogState> emit) async {
+    emit(DeleteBlogLoading());
     final res = await _deleteBlog(
         DeleteBlogParams(id: event.id, imageUrls: event.imageUrls));
 
     res.fold((failure) {
-      emit(BlogFailure(failure.message));
+      emit(DeleteBlogFailure(failure.message));
     }, (success) {
       emit(DeleteBlogSuccess());
       add(GetAllBlogsEvent());
@@ -98,6 +99,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
   void _onUpdateBlogEvent(
       UpdateBlogEvent event, Emitter<BlogState> emit) async {
+    emit(UpdateBlogLoading());
     final res = await _updateBlog(UpdateBlogParams(
       images: event.image,
       title: event.title,
@@ -111,7 +113,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
     res.fold((failure) {
       log(failure.message);
       add(GetAllBlogsEvent());
-      emit(BlogFailure(failure.message));
+      emit(UpdateBlogFailure(failure.message));
     }, (blog) {
       add(GetAllBlogsEvent());
       _profileBloc.add(GetUserBlogsEvent());

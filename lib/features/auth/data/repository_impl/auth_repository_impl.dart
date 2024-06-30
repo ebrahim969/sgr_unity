@@ -1,6 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:sgr_unity/core/error/failures.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
+import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:sgr_unity/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:sgr_unity/core/common/entities/user.dart';
 import 'package:sgr_unity/features/auth/data/models/user_model.dart';
@@ -38,19 +39,19 @@ class AuthRepositoryImpl implements AuthRepository {
       if (!await (connectionChecker.isConnected)) {
         final session = authRemoteDataSource.currentUserSession;
         if (session == null) {
-          return left(Failures('User not logged in!'));
+          return left(Failures(isArabic()? 'المستخدم غير مسجل' :'User not logged in!'));
         }
         return right(
           UserModel(
             id: session.user.id,
             email: session.user.email ?? '',
-            name: '',
+            name: session.user.appMetadata['name'],
           ),
         );
       }
       final user = await authRemoteDataSource.getCurrentUserData();
       if (user == null) {
-        return left(Failures('User is not logedin'));
+        return left(Failures(isArabic()? 'المستخدم غير مسجل' :'User is not logged in!'));
       }
       return right(user);
     } on ServerException catch (e) {
@@ -73,7 +74,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failures, Unit>> signOut() async {
     try {
       if (!await (connectionChecker.isConnected)) {
-          return left(Failures('Check yur internet connection...'));
+          return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check yur internet connection...'));
       }
       await authRemoteDataSource.signOutUser();
       return right(unit);

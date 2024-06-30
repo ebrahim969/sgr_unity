@@ -49,16 +49,16 @@ class _CustomSignUpFormState extends State<CustomSignInForm> {
           SizedBox(height: 20.h),
           BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
-              if (state is AuthFailure) {
+              if (state is SignInFailure) {
                 showToast(state.message, context);
               }
-              if (state is AuthSuccess) {
+              if (state is SignInSuccess) {
                 customReplacementNavigate(context, '/');
               }
             },
             builder: (context, state) {
               return CustomAuthBtn(
-                  isLoading: state is AuthLoading ? true : false,
+                  isLoading: state is SignInLoading ? true : false,
                   buttonText: txt.SignIn,
                   onPressed: () {
                     if (signInFormKey.currentState!.validate()) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 import 'package:toastification/toastification.dart';
 
@@ -9,7 +10,7 @@ showToast(String msg, BuildContext context, {ToastificationType? type}) {
     type: type ?? ToastificationType.error,
     style: ToastificationStyle.minimal,
     autoCloseDuration: const Duration(seconds: 3),
-    title: Text(type == ToastificationType.success? 'Success' : 'Warning'),
+    title: Text(type == ToastificationType.success? S.of(context).success : S.of(context).warning),
     description: Text(msg),
     alignment: Alignment.bottomCenter,
     direction: TextDirection.ltr,
@@ -25,7 +26,7 @@ showToast(String msg, BuildContext context, {ToastificationType? type}) {
     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
     margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
     borderRadius: BorderRadius.circular(12),
-    borderSide: const BorderSide(color: AppPallete.errorColor),
+    borderSide: BorderSide(color: type == ToastificationType.success? Colors.green: AppPallete.errorColor),
     boxShadow: const [
       BoxShadow(
         color: Color(0x07000000),

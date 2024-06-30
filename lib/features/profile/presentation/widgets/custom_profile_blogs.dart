@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sgr_unity/core/utils/images.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/try_again_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_card.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_loading_blog_card.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
@@ -56,7 +57,9 @@ class _CustomProfileBlogsState extends State<CustomProfileBlogs> {
             );
           }
         } else {
-          return const SizedBox();
+          return TryAgainWidget(
+            onTap: () {context.read<ProfileBloc>().add(GetUserBlogsEvent());},
+          );
         }
       },
     );

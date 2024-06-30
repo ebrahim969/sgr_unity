@@ -26,13 +26,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _userSignIn = userSignIn,
         _userSignOut = userSignOut,
         super(AuthInitial()) {
-    on<AuthEvent>((_, emit) => emit(AuthLoading()));
     on<AuthSignUp>(_onAuthSignUp);
     on<AuthSignIn>(_onAuthSignIn);
     on<AuthUserSignOut>(_onAuthUserSignOut);
   }
 
   void _onAuthSignUp(AuthSignUp event, Emitter<AuthState> emit) async {
+    emit(SignUpLoading());
     final res = await _userSignUp(
       UserSignUpParams(
         name: event.name,
@@ -42,11 +42,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
     res.fold((failure) {
       log(failure.message);
-      emit(AuthFailure(failure.message));
-    }, (user) => emit(UnitSuccess()));
+      emit(SignUpFailure(failure.message));
+    }, (user) => emit(SignUpSuccess()));
   }
 
   void _onAuthSignIn(AuthSignIn event, Emitter<AuthState> emit) async {
+    emit(SignInLoading());
     final res = await _userSignIn(UserSignInParams(
       email: event.email,
       password: event.password,
@@ -54,21 +55,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     res.fold((failure) {
       log(failure.message);
-      emit(AuthFailure(failure.message));
+      emit(SignInFailure(failure.message));
     }, (user) {
       userIsLoggedIn();
-      emit(AuthSuccess(user));
+      emit(SignInSuccess(user));
     });
   }
 
   void _onAuthUserSignOut(
       AuthUserSignOut event, Emitter<AuthState> emit) async {
+    emit(SignOutLoading());
     final res = await _userSignOut(NoParams());
     res.fold((failure) {
-      emit(AuthFailure(failure.message));
+      emit(SignOutFailure(failure.message));
     }, (unit) {
       userIsLoggedOut();
-      emit(UnitSuccess());
+      emit(SignOutSuccess());
     });
   }
 }

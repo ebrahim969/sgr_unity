@@ -58,10 +58,10 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
           SizedBox(height: 20.h),
           BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
-              if (state is AuthFailure) {
+              if (state is SignUpFailure) {
                 showToast(state.message, context);
               }
-              if (state is UnitSuccess) {
+              if (state is SignOutSuccess) {
                 customReplacementNavigate(
                   context,
                   '/SignInView',
@@ -71,7 +71,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             },
             builder: (context, state) {
               return CustomAuthBtn(
-                  isLoading: state is AuthLoading ? true : false,
+                  isLoading: state is SignUpLoading ? true : false,
                   buttonText: txt.SignUp,
                   onPressed: () {
                     if (signUpFormKey.currentState!.validate()) {

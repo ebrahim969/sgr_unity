@@ -23,14 +23,14 @@ class ProfileView extends StatelessWidget {
           actions: [
             BlocConsumer<AuthBloc, AuthState>(
               listener: (context, state) {
-                if (state is UnitSuccess) {
+                if (state is SignOutSuccess) {
                   customReplacementNavigate(context, '/');
-                } else if (state is AuthFailure) {
+                } else if (state is SignOutFailure) {
                   showToast(state.message, context);
                 }
               },
               builder: (context, state) {
-                if (state is AuthLoading) {
+                if (state is SignOutLoading) {
                   return const CustomLoader();
                 }
                 return const CustomProfileMenuWidget();

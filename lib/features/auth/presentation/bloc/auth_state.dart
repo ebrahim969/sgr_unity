@@ -7,18 +7,38 @@ sealed class AuthState {
 
 final class AuthInitial extends AuthState {}
 
-final class AuthLoading extends AuthState {}
+// Loading States
 
-final class AuthSuccess extends AuthState {
+final class SignUpLoading extends AuthState {}
+
+final class SignInLoading extends AuthState {}
+
+final class SignOutLoading extends AuthState {}
+
+// Success States
+
+final class SignInSuccess extends AuthState {
   final UserEntity user;
 
-  const AuthSuccess(this.user);
+  const SignInSuccess(this.user);
 }
+final class SignUpSuccess extends AuthState {}
+final class SignOutSuccess extends AuthState {}
 
-final class AuthFailure extends AuthState {
+// Failure States
+
+final class SignInFailure extends AuthState {
   final String message;
 
-  const AuthFailure(this.message);
+  const SignInFailure(this.message);
 }
+final class SignUpFailure extends AuthState {
+  final String message;
 
-final class UnitSuccess extends AuthState {}
+  const SignUpFailure(this.message);
+}
+final class SignOutFailure extends AuthState {
+  final String message;
+
+  const SignOutFailure(this.message);
+}

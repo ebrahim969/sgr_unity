@@ -5,6 +5,7 @@ import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/common/entities/user.dart';
 import 'package:sgr_unity/core/error/failures.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
+import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:sgr_unity/features/auth/data/models/user_model.dart';
 import 'package:sgr_unity/features/profile/data/datasources/profile_remote_data_source.dart';
 import 'package:sgr_unity/features/profile/domain/repository/profile_repository.dart';
@@ -17,7 +18,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   Future<Either<Failures, List<Blog>>> getCurrentUserBlogs() async {
     try {
       if (!(await connectionChecker.isConnected)) {
-        return left(Failures('No Internet, Please try later'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'No Internet, Please try later'));
       }
       final blogs = await profileRemoteDataSource.getCurrentUserBlogs();
       return right(blogs);

@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/error/failures.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
+import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:sgr_unity/features/blog/data/datasources/user_saved_blogs_remote_data_source.dart';
 import 'package:sgr_unity/features/blog/data/models/saved_blog_model.dart';
 import 'package:sgr_unity/features/blog/domain/entities/saved_blog_entity.dart';
@@ -63,7 +64,7 @@ class UserSavedBlogsRepositoryImpl implements UserSavedBlogsRepository {
       {required String userId}) async {
     try {
       if (!await (connectionChecker.isConnected)) {
-        return left(Failures('Check your internet connection...'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check your internet connection...'));
       }
       List<String> blogsId = await fetchUserBlogsIdMethod(userId);
       final getSavedBlogs =

@@ -23,9 +23,9 @@ class CustomProfileMenuWidget extends StatelessWidget {
           icon: const Icon(
             Icons.menu,
           ),
-          color: state is AppThemeDarkMode
-              ? AppPallete.darkBackgroundColor
-              : AppPallete.lightBackgroundColor,
+          color: state is AppThemeLightMode
+              ? AppPallete.lightBackgroundColor
+              : AppPallete.darkBackgroundColor,
           itemBuilder: (context) => [
             PopupMenuItem(
               value: 'Change theme',

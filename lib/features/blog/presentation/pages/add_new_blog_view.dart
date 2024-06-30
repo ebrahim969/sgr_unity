@@ -66,14 +66,14 @@ class _AddNewBlogViewState extends State<AddNewBlogView> {
         actions: [
           BlocConsumer<BlogBloc, BlogState>(
             listener: (context, state) {
-              if (state is BlogFailure) {
+              if (state is UploadBlogFailure) {
                 showToast(state.message, context);
               } else if (state is UploadBlogSuccess) {
                 customReplacementNavigate(context, '/MainScreenView');
               }
             },
             builder: (context, state) {
-              return state is BlogLoading
+              return state is UploadBlogLoading
                   ? const CustomLoader()
                   : IconButton(
                       onPressed: () {

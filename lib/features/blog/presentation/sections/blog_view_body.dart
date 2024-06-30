@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/utils/images.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/try_again_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/blog_bloc/blog_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_blog_card.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_loading_blog_card.dart';
@@ -31,12 +32,12 @@ class _BlogViewBodyState extends State<BlogViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<BlogBloc, BlogState>(
       listener: (context, state) {
-        if (state is BlogFailure) {
+        if (state is GetAllBlogsFailure) {
           showToast(state.message, context);
         }
       },
       builder: (context, state) {
-        if (state is BlogLoading) {
+        if (state is GetAllBlogsLoading) {
           return ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) {
@@ -63,7 +64,11 @@ class _BlogViewBodyState extends State<BlogViewBody> {
             );
           }
         } else {
-          return const SizedBox();
+          return TryAgainWidget(
+            onTap: () {
+              context.read<BlogBloc>().add(widget.blogEvent);
+            },
+          );
         }
       },
     );

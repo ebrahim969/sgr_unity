@@ -63,7 +63,7 @@ class CustomBlogUserInfo extends StatelessWidget {
                                 type: ToastificationType.success);
                             customReplacementNavigate(
                                 context, '/MainScreenView');
-                          } else if (state is BlogFailure) {
+                          } else if (state is DeleteBlogFailure) {
                             showToast(
                               txt.Somethingwentwrong,
                               context,

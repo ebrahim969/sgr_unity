@@ -5,12 +5,32 @@ sealed class BlogState {}
 
 final class BlogInitial extends BlogState {}
 
-final class BlogLoading extends BlogState {}
+final class GetAllBlogsLoading extends BlogState {}
+final class UploadBlogLoading extends BlogState {}
+final class UpdateBlogLoading extends BlogState {}
+final class DeleteBlogLoading extends BlogState {}
 
-final class BlogFailure extends BlogState {
+// Failure States
+final class GetAllBlogsFailure extends BlogState {
   final String message;
 
-  BlogFailure(this.message);
+  GetAllBlogsFailure(this.message);
+}
+
+final class UploadBlogFailure extends BlogState {
+  final String message;
+
+  UploadBlogFailure(this.message);
+}
+final class UpdateBlogFailure extends BlogState {
+  final String message;
+
+  UpdateBlogFailure(this.message);
+}
+final class DeleteBlogFailure extends BlogState {
+  final String message;
+
+  DeleteBlogFailure(this.message);
 }
 
 final class DeleteBlogSuccess extends BlogState {}

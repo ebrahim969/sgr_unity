@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:fpdart/fpdart.dart';
 import 'package:sgr_unity/core/error/failures.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
+import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:sgr_unity/features/blog/data/datasources/blog_local_data_source.dart';
 import 'package:sgr_unity/features/blog/data/datasources/blog_remote_data_source.dart';
 import 'package:sgr_unity/core/common/models/blog_model.dart';
@@ -25,7 +26,7 @@ class BlogRepositoryImpl implements BlogRepository {
   }) async {
     try {
       if (!await (connectionChecker.isConnected)) {
-        return left(Failures('Check your internet connection...'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check your internet connection...'));
       }
       BlogModel blogModel = BlogModel(
           id: const Uuid().v1(),
@@ -71,7 +72,7 @@ class BlogRepositoryImpl implements BlogRepository {
       {required String topic}) async {
     try {
       if (!await (connectionChecker.isConnected)) {
-        return left(Failures('Check your internet connection...'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check your internet connection...'));
       }
       final blogs = await blogRemoteDataSource.getTopicBlogs(topic: topic);
       return right(blogs);
@@ -85,7 +86,7 @@ class BlogRepositoryImpl implements BlogRepository {
       {required String id, required List<String> imageUrls}) async {
     try {
       if (!await (connectionChecker.isConnected)) {
-        return left(Failures('Check your internet connection...'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check your internet connection...'));
       }
       await blogRemoteDataSource.deleteBlog(id: id, imageUrls: imageUrls);
       return right(unit);
@@ -106,7 +107,7 @@ class BlogRepositoryImpl implements BlogRepository {
   }) async {
     try {
       if (!await (connectionChecker.isConnected)) {
-        return left(Failures('Check your internet connection...'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check your internet connection...'));
       }
       BlogModel blogModel = BlogModel(
           imageUrl: null,

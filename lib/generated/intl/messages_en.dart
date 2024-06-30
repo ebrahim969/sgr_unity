@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Somethingwentwrong": MessageLookupByLibrary.simpleMessage(
             "Something went wrong, please try later!"),
         "Surveying": MessageLookupByLibrary.simpleMessage("Surveying"),
+        "Tryagain": MessageLookupByLibrary.simpleMessage("Try again"),
         "Update": MessageLookupByLibrary.simpleMessage("Update"),
         "Welcometo": MessageLookupByLibrary.simpleMessage("Welcome to "),
         "Youdonthavechangeanything": MessageLookupByLibrary.simpleMessage(

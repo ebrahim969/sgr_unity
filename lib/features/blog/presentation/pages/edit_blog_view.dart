@@ -86,7 +86,7 @@ class _EditBlogViewState extends State<EditBlogView> {
                     showToast(txt.Blogupdatedsuccessfuly, context,
                         type: ToastificationType.success);
                     custompopNavigate(context);
-                  } else if (state is BlogFailure) {
+                  } else if (state is UpdateBlogFailure) {
                     showToast(state.message, context);
                   }
                 },
@@ -112,7 +112,7 @@ class _EditBlogViewState extends State<EditBlogView> {
                               updatedAt: DateTime.now()));
                         }
                       },
-                      isLoading: state is BlogLoading,
+                      isLoading: state is UpdateBlogLoading,
                     ),
                   );
                 },
