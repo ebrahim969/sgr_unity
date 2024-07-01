@@ -13,22 +13,16 @@ final class UserSavedBlogsSuccess extends UserSavedBlogsState {
   UserSavedBlogsSuccess(this.savedBlog);
 }
 
-final class UserDeleteBlogsSuccess extends UserSavedBlogsState {
-  final String blogId;
-
-  UserDeleteBlogsSuccess(this.blogId);
-}
-
 final class UserSavedBlogsFailure extends UserSavedBlogsState {
   final String errMessage;
 
   UserSavedBlogsFailure(this.errMessage);
 }
 
-final class FetchUserSavedBlogsIdSuccess extends UserSavedBlogsState {
-  final List<String> userSavedBlogs;
+final class GetUserSavedBlogsFailure extends UserSavedBlogsState {
+  final String errMessage;
 
-  FetchUserSavedBlogsIdSuccess(this.userSavedBlogs);
+  GetUserSavedBlogsFailure(this.errMessage);
 }
 
 final class GetUserSavedBlogsSuccess extends UserSavedBlogsState {

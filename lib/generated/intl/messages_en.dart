@@ -54,10 +54,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "FullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "Gis": MessageLookupByLibrary.simpleMessage("Gis"),
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
+        "Info": MessageLookupByLibrary.simpleMessage("Info"),
         "Jointo": MessageLookupByLibrary.simpleMessage("Join to "),
         "Jointoourunity":
             MessageLookupByLibrary.simpleMessage("Join to our unity"),
         "Light": MessageLookupByLibrary.simpleMessage("Light"),
+        "Notfountotherblogs":
+            MessageLookupByLibrary.simpleMessage("Not found other blogs"),
         "OnBoarding1": MessageLookupByLibrary.simpleMessage(
             "Discover insightful blogs and stay updated with the latest trends in surveying, remote sensing, and GIS."),
         "OnBoarding2": MessageLookupByLibrary.simpleMessage(
@@ -84,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Somethingwentwrong": MessageLookupByLibrary.simpleMessage(
             "Something went wrong, please try later!"),
         "Surveying": MessageLookupByLibrary.simpleMessage("Surveying"),
+        "Thisfeaturewillbeaddedsoon": MessageLookupByLibrary.simpleMessage(
+            "This feature will be added soon"),
         "Tryagain": MessageLookupByLibrary.simpleMessage("Try again"),
         "Update": MessageLookupByLibrary.simpleMessage("Update"),
         "Welcometo": MessageLookupByLibrary.simpleMessage("Welcome to "),

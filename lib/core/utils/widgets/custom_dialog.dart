@@ -11,13 +11,14 @@ void customDialog({
   String? cancleText,
   required Function()? okTap,
   Function()? cancleTap,
+  QuickAlertType? type,
 }) {
   QuickAlert.show(
     backgroundColor: AppPallete.darkBackgroundColor,
     confirmBtnColor: AppPallete.darkBackgroundColor,
     showCancelBtn: true,
     context: context,
-    type: QuickAlertType.warning,
+    type: type?? QuickAlertType.warning,
     titleColor: AppPallete.whiteColor,
     title: title,
     text: desc,

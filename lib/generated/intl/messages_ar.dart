@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "FullName": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
         "Gis": MessageLookupByLibrary.simpleMessage("نظم المعلومات"),
         "Home": MessageLookupByLibrary.simpleMessage("الرئيسيه"),
+        "Info": MessageLookupByLibrary.simpleMessage("معلومه"),
         "Jointo": MessageLookupByLibrary.simpleMessage("انضم الي "),
         "Jointoourunity":
             MessageLookupByLibrary.simpleMessage("انضم الي مجتمعنا"),
@@ -80,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Somethingwentwrong":
             MessageLookupByLibrary.simpleMessage("حدث شئ خطأ ، حاول مجددا!"),
         "Surveying": MessageLookupByLibrary.simpleMessage("المساحه"),
+        "Thisfeaturewillbeaddedsoon":
+            MessageLookupByLibrary.simpleMessage("هذه الميزه ستضاف قريبا"),
         "Tryagain": MessageLookupByLibrary.simpleMessage("حاول مجددا"),
         "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "Welcometo": MessageLookupByLibrary.simpleMessage("مرحبا في "),

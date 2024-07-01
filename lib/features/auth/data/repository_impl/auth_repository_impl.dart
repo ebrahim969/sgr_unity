@@ -4,13 +4,15 @@ import 'package:sgr_unity/core/network/connection_checker.dart';
 import 'package:sgr_unity/features/app/function/check_app_local.dart';
 import 'package:sgr_unity/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:sgr_unity/core/common/entities/user.dart';
-import 'package:sgr_unity/features/auth/data/models/user_model.dart';
+import 'package:sgr_unity/features/auth/data/datasources/user_info_local_data_source.dart';
 import 'package:sgr_unity/features/auth/domain/repository/auth_reopsitory.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource authRemoteDataSource;
+  final UserInfoLocalDataSource userInfoLocalDataSource;
   final ConnectionChecker connectionChecker;
-  AuthRepositoryImpl(this.authRemoteDataSource, this.connectionChecker);
+  AuthRepositoryImpl(this.authRemoteDataSource, this.connectionChecker,
+      this.userInfoLocalDataSource);
   @override
   Future<Either<Failures, UserEntity>> logInWithEmailPassword(
       {required String email, required String password}) async {
@@ -39,20 +41,18 @@ class AuthRepositoryImpl implements AuthRepository {
       if (!await (connectionChecker.isConnected)) {
         final session = authRemoteDataSource.currentUserSession;
         if (session == null) {
-          return left(Failures(isArabic()? 'المستخدم غير مسجل' :'User not logged in!'));
+          return left(Failures(
+              isArabic() ? 'المستخدم غير مسجل' : 'User not logged in!'));
         }
-        return right(
-          UserModel(
-            id: session.user.id,
-            email: session.user.email ?? '',
-            name: session.user.appMetadata['name'],
-          ),
-        );
+        final user = userInfoLocalDataSource.loadUserInfo();
+        return right(user);
       }
       final user = await authRemoteDataSource.getCurrentUserData();
       if (user == null) {
-        return left(Failures(isArabic()? 'المستخدم غير مسجل' :'User is not logged in!'));
+        return left(Failures(
+            isArabic() ? 'المستخدم غير مسجل' : 'User is not logged in!'));
       }
+      userInfoLocalDataSource.uploadLocalUserInfo(user: user);
       return right(user);
     } on ServerException catch (e) {
       return left(Failures(e.toString()));
@@ -74,7 +74,9 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failures, Unit>> signOut() async {
     try {
       if (!await (connectionChecker.isConnected)) {
-          return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'Check yur internet connection...'));
+        return left(Failures(isArabic()
+            ? 'تفقد اتصالك بالأنترنت...'
+            : 'Check yur internet connection...'));
       }
       await authRemoteDataSource.signOutUser();
       return right(unit);

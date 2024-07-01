@@ -31,10 +31,11 @@ void initAuth() {
   sl
     ..registerFactory<AuthRemoteDataSource>(
         () => AuthRemoteDataSourceImpl(sl()))
-
+    ..registerFactory<UserInfoLocalDataSource>(()=> UserInfoLocalDataSourceImpl(Hive.box(name: 'user')))
     // Repository
     ..registerFactory<AuthRepository>(
       () => AuthRepositoryImpl(
+        sl(),
         sl(),
         sl(),
       ),

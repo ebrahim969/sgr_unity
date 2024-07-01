@@ -39,7 +39,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }) async {
     try {
       if (!(await connectionChecker.isConnected)) {
-        return left(Failures('No Internet, Please try later'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'No Internet, Please try later'));
       }
       UserModel userModel =
           UserModel(id: id, email: email, name: name, shortBio: shortBio);
@@ -64,7 +64,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
       {required String userId}) async {
     try {
       if (!(await connectionChecker.isConnected)) {
-        return left(Failures('No Internet, Please try later'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'No Internet, Please try later'));
       }
       final userBlogs =
           await profileRemoteDataSource.getAnyUserBlogs(userId: userId);
@@ -81,7 +81,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
       {required String userId}) async {
     try {
       if (!(await connectionChecker.isConnected)) {
-        return left(Failures('No Internet, Please try later'));
+        return left(Failures(isArabic()? 'تفقد اتصالك بالأنترنت...' :'No Internet, Please try later'));
       }
       final userInfo =
           await profileRemoteDataSource.getAnyUserInfo(userId: userId);

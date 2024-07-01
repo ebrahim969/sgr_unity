@@ -639,6 +639,36 @@ class S {
       args: [],
     );
   }
+
+  /// `This feature will be added soon`
+  String get Thisfeaturewillbeaddedsoon {
+    return Intl.message(
+      'This feature will be added soon',
+      name: 'Thisfeaturewillbeaddedsoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Info`
+  String get Info {
+    return Intl.message(
+      'Info',
+      name: 'Info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not found other blogs`
+  String get Notfountotherblogs {
+    return Intl.message(
+      'Not found other blogs',
+      name: 'Notfountotherblogs',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

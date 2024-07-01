@@ -23,7 +23,7 @@ class SavedViewBlogsBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: BlocConsumer<UserSavedBlogsBloc, UserSavedBlogsState>(
         listener: (context, state) {
-          if (state is UserSavedBlogsFailure) {
+          if (state is GetUserSavedBlogsFailure) {
             showToast(state.errMessage, context);
           }
         },
@@ -53,11 +53,13 @@ class SavedViewBlogsBody extends StatelessWidget {
                   }),
             );
           }
-          return TryAgainWidget(onTap: () {
-            context
-                    .read<UserSavedBlogsBloc>()
-                    .add(GetUserSavedBlogsEvent(userId));
-          },);
+          return Center(
+            child: TryAgainWidget(onTap: () {
+              context
+                      .read<UserSavedBlogsBloc>()
+                      .add(GetUserSavedBlogsEvent(userId));
+            },),
+          );
         },
       ),
     );

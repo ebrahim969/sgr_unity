@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_loader.dart';
 import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
+import 'package:sgr_unity/core/utils/widgets/try_again_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/blog_from_same_auther_item.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_any_user_blogs/get_any_user_blogs_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
 
 class BlogsFromSameAuther extends StatefulWidget {
   const BlogsFromSameAuther({super.key, required this.blog});
@@ -34,6 +36,9 @@ class _BlogsFromSameAutherState extends State<BlogsFromSameAuther> {
         if (state is GetAnyUserBlogsLoading) {
           return const Center(child: CustomLoader());
         } else if (state is GetAnyUserBlogsSuccess) {
+          if (state.blogs.length == 1) {
+            return Center(child: Text(S.of(context).Notfountotherblogs),);
+          }
           return ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -43,7 +48,13 @@ class _BlogsFromSameAutherState extends State<BlogsFromSameAuther> {
                 return BlogFromSameAutherItem(blog: reversedBlogs[index]);
               });
         }
-        return const SizedBox();
+        return TryAgainWidget(
+          onTap: () {
+            context
+                .read<GetAnyUserBlogsBloc>()
+                .add(EventGetAnyUserBlogs(widget.blog.posterId));
+          },
+        );
       },
     );
   }

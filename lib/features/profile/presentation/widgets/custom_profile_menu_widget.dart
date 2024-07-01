@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quickalert/models/quickalert_type.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
 import 'package:sgr_unity/core/theme/app_theme_cubit/app_theme_cubit.dart';
 import 'package:sgr_unity/core/theme/enum/app_theme_enum.dart';
@@ -68,6 +69,8 @@ class CustomProfileMenuWidget extends StatelessWidget {
 
   void changeLanguageDialog(BuildContext context, S txt) {
     return customDialog(
+      type: QuickAlertType.confirm,
+        title: txt.ChangeLanguage,
         context: context,
         desc: txt.Changeyourapplanguage,
         okText: txt.Arabic,
@@ -86,6 +89,8 @@ class CustomProfileMenuWidget extends StatelessWidget {
 
   void changeThemeDialog(BuildContext context, S txt) {
     return customDialog(
+      type: QuickAlertType.confirm,
+      title: txt.Changetheme,
         context: context,
         desc: txt.Cahngeyourapptheme,
         okText: txt.Dark,

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/common/entities/blog.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/blog_details_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_other_blogs_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_saved_blogs_widget.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_share_blog_widget.dart';
+import 'package:sgr_unity/generated/l10n.dart';
+import 'package:toastification/toastification.dart';
 
 class BlogDetailsView extends StatelessWidget {
   const BlogDetailsView({super.key, required this.blog});
@@ -30,7 +33,13 @@ class BlogDetailsView extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          const Icon(Icons.recommend),
+                          GestureDetector(
+                              onTap: () {
+                                showToast(
+                                    S.of(context).Thisfeaturewillbeaddedsoon,
+                                    context, type: ToastificationType.info);
+                              },
+                              child: const Icon(Icons.recommend)),
                           CustomShareBlogWidget(blog: blog),
                           CustomSavedBlogWidget(blog: blog)
                         ],

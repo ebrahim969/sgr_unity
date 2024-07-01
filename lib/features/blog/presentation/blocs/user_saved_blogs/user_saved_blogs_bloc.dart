@@ -40,7 +40,7 @@ class UserSavedBlogsBloc
     final res =
         await _getUserSavedBlogs(GetUserSavedBlogsParams(userId: event.userId));
 
-    res.fold((failure) => emit(UserSavedBlogsFailure(failure.message)),
+    res.fold((failure) => emit(GetUserSavedBlogsFailure(failure.message)),
         (savedBlogs) => emit(GetUserSavedBlogsSuccess(savedBlogs)));
   }
 }

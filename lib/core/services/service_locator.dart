@@ -6,6 +6,7 @@ import 'package:sgr_unity/core/cache/cache_helper.dart';
 import 'package:sgr_unity/core/network/connection_checker.dart';
 import 'package:sgr_unity/core/secrets/app_secret.dart';
 import 'package:sgr_unity/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:sgr_unity/features/auth/data/datasources/user_info_local_data_source.dart';
 import 'package:sgr_unity/features/auth/data/repository_impl/auth_repository_impl.dart';
 import 'package:sgr_unity/features/auth/domain/repository/auth_reopsitory.dart';
 import 'package:sgr_unity/features/auth/domain/usecases/current_user.dart';

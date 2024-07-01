@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sgr_unity/core/functions/navigation.dart';
 import 'package:sgr_unity/core/theme/app_pallete.dart';
+import 'package:sgr_unity/core/utils/widgets/custom_toast.dart';
 import 'package:sgr_unity/features/blog/presentation/blocs/user_saved_blogs/user_saved_blogs_bloc.dart';
 import 'package:sgr_unity/features/blog/presentation/sections/home_view_body.dart';
 import 'package:sgr_unity/features/blog/presentation/widgets/custom_tab_bar.dart';
 import 'package:sgr_unity/features/profile/presentation/bloc/get_current_user/getusers_bloc.dart';
+import 'package:sgr_unity/generated/l10n.dart';
+import 'package:toastification/toastification.dart';
 
 class BlogsView extends StatefulWidget {
   const BlogsView({super.key});
@@ -55,7 +58,11 @@ class _BlogsViewState extends State<BlogsView>
           ),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
+          IconButton(
+              onPressed: () {
+                showToast(S.of(context).Thisfeaturewillbeaddedsoon, context, type: ToastificationType.info);
+              },
+              icon: const Icon(Icons.notifications))
         ],
         bottom: customTabBar(_tabController, context),
       ),
