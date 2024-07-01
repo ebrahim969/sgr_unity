@@ -48,12 +48,14 @@ class _BlogsFromSameAutherState extends State<BlogsFromSameAuther> {
                 return BlogFromSameAutherItem(blog: reversedBlogs[index]);
               });
         }
-        return TryAgainWidget(
-          onTap: () {
-            context
-                .read<GetAnyUserBlogsBloc>()
-                .add(EventGetAnyUserBlogs(widget.blog.posterId));
-          },
+        return Center(
+          child: TryAgainWidget(
+            onTap: () {
+              context
+                  .read<GetAnyUserBlogsBloc>()
+                  .add(EventGetAnyUserBlogs(widget.blog.posterId));
+            },
+          ),
         );
       },
     );

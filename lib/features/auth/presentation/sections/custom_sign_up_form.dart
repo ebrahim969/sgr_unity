@@ -61,7 +61,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
               if (state is SignUpFailure) {
                 showToast(state.message, context);
               }
-              if (state is SignOutSuccess) {
+              if (state is SignUpSuccess) {
                 customReplacementNavigate(
                   context,
                   '/SignInView',

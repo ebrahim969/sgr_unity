@@ -22,11 +22,11 @@ showToast(String msg, BuildContext context, {ToastificationType? type}) {
       );
     },
     icon: const Icon(Icons.close),
-    primaryColor:type == ToastificationType.error? Colors.red :Colors.green,
+    primaryColor:type == ToastificationType.success || type == ToastificationType.info? Colors.green :Colors.red,
     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
     margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
     borderRadius: BorderRadius.circular(12),
-    borderSide: BorderSide(color: type == ToastificationType.error? AppPallete.errorColor :Colors.green),
+    borderSide: BorderSide(color: type == ToastificationType.success || type == ToastificationType.info? Colors.green : AppPallete.errorColor),
     boxShadow: const [
       BoxShadow(
         color: Color(0x07000000),
